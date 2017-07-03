@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:design="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -149,60 +150,6 @@ android:onClick="package4"
 </HorizontalScrollView>
 
 
-
-    <RelativeLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-
-
-
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:map="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-android:layout_marginTop="120dp"
-            android:layout_width="match_parent"
-
-            android:layout_height="450dp"
-            tools:context="com.sumo.traffic.traffic" />
-
-            <fragment
-                android:id="@+id/place_autocomplete_fragment"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#87E886"
-
-                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-                android:layout_alignTop="@+id/map"
-                android:layout_alignParentStart="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Plot My Selected Destination"
-            android:id="@+id/selected"
-            android:onClick="selected"
-            android:layout_above="@+id/place_autocomplete_fragment"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Navigation Mode"
-            android:onClick="navigate"
-            android:id="@+id/navigator"
-            android:layout_above="@+id/place_autocomplete_fragment"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
-
-
-    </RelativeLayout>
-
-
     <View
         android:layout_width="match_parent"
         android:layout_height="4dp"
@@ -216,6 +163,86 @@ android:layout_marginTop="120dp"
         android:background="#689F38"
         android:layout_height="wrap_content"
         design:menu="@menu/menu_navigation"/>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/multiple_actions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            fab:fab_addButtonColorNormal="#fff"
+            fab:fab_addButtonColorPressed="#fff"
+            fab:fab_addButtonPlusIconColor="#fff132"
+            fab:fab_labelStyle="@style/menu_labels_style"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/white"
+            fab:fab_title="Action A"
+            fab:fab_colorPressed="#fff"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/white"
+            fab:fab_title="Action with a very long name that won\'t fit on the screen"
+            fab:fab_colorPressed="#fff"/>
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+
+            android:layout_marginTop="120dp"
+            tools:context="com.sumo.traffic.traffic" />
+
+        <fragment
+            android:id="@+id/place_autocomplete_fragment"
+            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/map"
+            android:background="#87E886" />
+
+        <Button
+            android:id="@+id/selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/place_autocomplete_fragment"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:onClick="selected"
+            android:text="Plot My Selected Destination" />
+
+        <Button
+            android:id="@+id/navigator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/place_autocomplete_fragment"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:onClick="navigate"
+            android:text="Navigation Mode" />
+
+
+    </RelativeLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
