@@ -34,13 +34,15 @@ android:orientation="vertical"
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+
+        android:background="@drawable/border">
         <fragment
             android:id="@+id/place_autocomplete_fragment"
             android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-
+android:layout_margin="5dp"
 
 
             android:background="#87E886" />
@@ -48,10 +50,11 @@ android:orientation="vertical"
 
 
 
-    <LinearLayout
+    <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="15">
+    android:layout_weight="15"
+        android:orientation="vertical">
 
         <fragment
             android:id="@+id/map"
@@ -59,12 +62,58 @@ android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
             tools:context="com.sumo.traffic.traffic" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:foregroundGravity="bottom"
+    android:layout_alignParentBottom="true"
+  >
 
 
-    </LinearLayout>
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/menu_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                fab:menu_labels_ellipsize="end"
+                fab:menu_labels_singleLine="true"
+                fab:menu_fab_label="Menu label"
+                android:layout_marginBottom="12dp"
+                android:layout_marginRight="15dp">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    fab:fab_size="mini"
+                    fab:fab_label="Disabled" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    fab:fab_size="mini"
+                    fab:fab_label="Remove button" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    fab:fab_size="mini"
+                    fab:fab_label="Restore Button" />
+
+            </com.github.clans.fab.FloatingActionMenu>
+
+
+</LinearLayout>
+    </RelativeLayout>
+
+
+
 
 
         <LinearLayout

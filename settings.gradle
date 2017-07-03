@@ -1,1 +1,1 @@
-include ':app', ':compoundlayout', ':Expandablelayout-library'
+include ':app', ':compoundlayout', ':Expandablelayout-library', ':library2'

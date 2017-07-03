@@ -191,6 +191,7 @@
     <orderEntry type="library" exported="" name="google-api-client-1.17.0-rc" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-24.0.0" level="project" />
     <orderEntry type="module" module-name="compoundlayout" exported="" />
+    <orderEntry type="module" module-name="library2" exported="" />
     <orderEntry type="module" module-name="Expandablelayout-library" exported="" />
     <orderEntry type="library" exported="" name="android-android-25" level="project" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-25" level="project" />
