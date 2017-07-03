@@ -7,15 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sumo.traffic.traffic"
-   >
+    android:background="#fff"
+    >
 
 
 
 
 
-                <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv1" android:scrollbars="horizontal" android:textColor="#5DFF5F" android:visibility="gone" />
-                <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv2"  android:scrollbars="horizontal" android:visibility="gone"/>
-                <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv3"  android:scrollbars="horizontal" android:visibility="gone" />
+    <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv1" android:scrollbars="horizontal" android:textColor="#5DFF5F" android:visibility="gone" />
+    <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv2"  android:scrollbars="horizontal" android:visibility="gone"/>
+    <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv3"  android:scrollbars="horizontal" android:visibility="gone" />
 
 
     <View
@@ -24,74 +25,63 @@
         android:layout_gravity="top"
         android:background="@drawable/shadow"/>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+
+    <LinearLayout
+android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="#689F38"
-        design:menu="@menu/menu_navigation" />
+        android:layout_weight="1">
+        <fragment
+            android:id="@+id/place_autocomplete_fragment"
+            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
 
-    <RelativeLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:id="@+id/multiple_actions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            fab:fab_addButtonColorNormal="#fff"
-            fab:fab_addButtonColorPressed="#fff"
-            fab:fab_addButtonPlusIconColor="#fff132"
-            fab:fab_labelStyle="@style/menu_labels_style">
+            android:background="#87E886" />
+    </LinearLayout>
 
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/action_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/white"
-                fab:fab_colorPressed="#fff"
-                fab:fab_title="Action A" />
 
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/action_b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/white"
-                fab:fab_colorPressed="#fff"
-                fab:fab_title="Action with a very long name that won\'t fit on the screen" />
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:map="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="15">
+
+        <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            tools:context="com.sumo.traffic.traffic"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            tools:context="com.sumo.traffic.traffic" />
 
-        <fragment
-            android:id="@+id/place_autocomplete_fragment"
-            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+
+    </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#689F38"
+                design:menu="@menu/menu_navigation" />
+        </LinearLayout>
 
-            android:background="#87E886" />
-
-
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

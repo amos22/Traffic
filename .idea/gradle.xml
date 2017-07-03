@@ -11,7 +11,6 @@
             <option value="$PROJECT_DIR$/Expandablelayout-library" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/compoundlayout" />
-            <option value="$PROJECT_DIR$/library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
