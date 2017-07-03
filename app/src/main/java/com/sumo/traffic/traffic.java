@@ -197,7 +197,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+/*
         hideme = (LinearLayout)
                 findViewById(R.id.hideme);
 
@@ -219,7 +219,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             selected.setVisibility(View.INVISIBLE);
             hideme.setVisibility(View.INVISIBLE);
             nav.setVisibility(View.VISIBLE);
-        }
+        }*/
 
         final View actionB = findViewById(R.id.action_b);
 
@@ -246,9 +246,9 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
 
-        b2 = (Button) findViewById(R.id.sched);
+  /*      b2 = (Button) findViewById(R.id.sched);
         b3 = (Button) findViewById(R.id.tour);
-
+*/
 
 /*
         if (button1 == 1) {
@@ -263,7 +263,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         }*/
 
 
-        if (button3 == 1) {
+  /*      if (button3 == 1) {
             b3.setText("Add Destinations");
 
         } else if (button3 == 2) {
@@ -271,7 +271,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
         }
 
-
+*/
         main = (CoordinatorLayout) findViewById(R.id.activity_main);
 
 
