@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#388E3C"
+    tools:context=".bestplaces.bestplaces_package2">
+
+    <com.example.compoundlayout.CompoundLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#27ae60"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="TARA Packages" />
+
+    </com.example.compoundlayout.CompoundLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp" android:textStyle="bold"
+        android:text="@string/p4"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp" android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:text="@string/p4_desc" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.compoundlayout.RadioLayoutGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:orientation="horizontal">
+
+            <com.example.compoundlayout.CircleGradientRadioLayout
+                android:id="@+id/profile_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:elevation="2dp"
+                app:angle="45"
+                app:checked="true"
+                app:colorA="#AAFFA726"
+                app:colorB="#AAEC407A">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baguhan_bayani" />
+            </com.example.compoundlayout.CircleGradientRadioLayout>
+
+            <com.example.compoundlayout.CircleGradientRadioLayout
+                android:id="@+id/profile_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded"
+                android:elevation="2dp"
+                app:colorA="#AA42A5F5"
+                app:colorB="#AAAB47BC">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baguhan_zoo" />
+            </com.example.compoundlayout.CircleGradientRadioLayout>
+
+            <com.example.compoundlayout.CircleGradientRadioLayout
+                android:id="@+id/profile_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded"
+                android:elevation="2dp"
+                app:angle="45"
+                app:colorA="#BBAB47BC"
+                app:colorB="#BBEF5350">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baguhan_starita" />
+            </com.example.compoundlayout.CircleGradientRadioLayout>
+
+            <com.example.compoundlayout.CircleGradientRadioLayout
+                android:id="@+id/profile_4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded"
+                android:elevation="2dp"
+                app:angle="70"
+                app:colorA="#00FFFFFF"
+                app:colorB="#FF26C6DA">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baguhan_pagasa" />
+            </com.example.compoundlayout.CircleGradientRadioLayout>
+
+        <!--    <com.example.compoundlayout.CircleGradientRadioLayout
+                android:id="@+id/profile_5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded"
+                android:elevation="2dp"
+                app:colorA="#55EF5350"
+                app:colorB="#88EC407A">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/eastwood_baguhan" />
+            </com.example.compoundlayout.CircleGradientRadioLayout>-->
+
+
+
+        </com.example.compoundlayout.RadioLayoutGroup>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/description_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textStyle="bold"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:text="Bantayog ng mga Bayani"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/subdes" android:textStyle="bold"
+            android:paddingBottom="20dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:text="@string/desc_bayani" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp" android:textStyle="bold"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:text="@string/duration1" />
+    </LinearLayout>
+
+</LinearLayout>

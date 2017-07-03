@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/traffic"
+        android:title="Traffic"
+        android:icon="@drawable/traffic"
+        app:showAsAction="always"
+        ></item>
+
+    <item android:id="@+id/route"
+        android:title="Route"
+        android:icon="@drawable/routing"
+        app:showAsAction="always"
+        ></item>
+
+    <item android:id="@+id/directions"
+        android:title="Directions"
+        android:icon="@drawable/direction"
+        app:showAsAction="always"
+        ></item>
+
+    <item android:id="@+id/alter"
+        android:title="Alternative Route"
+        android:icon="@drawable/alterr"
+        app:showAsAction="always"
+        ></item>
+
+    <item android:id="@+id/reset"
+        android:title="Reset"
+        android:icon="@drawable/reset"
+        app:showAsAction="always"
+        ></item>
+
+</menu>

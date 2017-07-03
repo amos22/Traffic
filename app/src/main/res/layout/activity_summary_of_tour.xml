@@ -1,0 +1,252 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.sumo.traffic.InfoOfArtInIsland"
+    android:background="#4CAF50"
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="500dp" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/loaders1"
+                    android:layout_marginLeft="100dp"
+                    android:layout_gravity="right"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="320dp"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#BEFFB6"
+                android:layout_marginLeft="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/img1"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/bckgrndViewFlipper1" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="320dp"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#BEFFB6"
+                android:layout_marginLeft="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/img2"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/bckgrndViewFlipper1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="320dp"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#BEFFB6"
+                android:layout_marginLeft="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/img3"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/bckgrndViewFlipper1" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="320dp"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#BEFFB6"
+                android:layout_marginLeft="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/img4"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/bckgrndViewFlipper1" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="320dp"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#87E886"
+                android:layout_marginLeft="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/img5"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/bckgrndViewFlipper1" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="320dp"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#87E886"
+                android:layout_marginLeft="10dp">
+
+
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/img6"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/bckgrndViewFlipper1" />
+            </RelativeLayout>
+
+
+
+
+
+
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+        </LinearLayout>
+
+
+
+
+
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+
+
+
+        <!--       <LinearLayout
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_marginTop="20dp">
+                   <ImageButton
+                       android:layout_width="wrap_content"
+                       android:layout_height="100dp"
+                       android:id="@+id/imageButton3"
+                       android:background="@drawable/faqz"
+                       android:layout_alignParentBottom="true"
+                       android:layout_alignParentStart="true"
+                       android:layout_marginBottom="10dp"/>
+
+               </LinearLayout>
+
+   -->
+
+
+
+
+    </ScrollView>
+</LinearLayout>

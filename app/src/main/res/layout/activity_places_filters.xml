@@ -1,0 +1,212 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="35dp"
+    android:layout_marginTop="40dp"
+    android:layout_marginRight="35dp"
+    android:layout_marginBottom="40dp"
+    android:background="#FF8B86"
+    tools:context="com.sumo.traffic.AreaFilter.PlacesFilters"
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="0.40">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/prev"
+                android:onClick="prev" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Transportation"
+                android:id="@+id/transpo" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:background="@drawable/next"
+                android:onClick="next" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp">
+
+            <ImageButton
+                android:id="@+id/air"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+               android:src="@drawable/buttonairport"
+                android:background="#FF8B86"/>
+
+
+            <ImageButton
+                android:id="@+id/bus"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/buttonbus"
+                android:background="#FF8B86"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Airport"
+                android:id="@+id/airsz"
+                android:layout_marginLeft="30dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Bus"
+                android:id="@+id/busz"
+                android:layout_marginLeft="115dp"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp">
+
+            <ImageButton
+                android:id="@+id/car"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/buttoncar"
+                android:background="#FF8B86"/>
+            <ImageButton
+        android:id="@+id/taxi"
+        android:layout_width="115dp"
+                android:src="@drawable/buttontaxi"
+                android:background="#FF8B86"
+                android:layout_marginLeft="35dp"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Car Rental"
+                android:id="@+id/airszs"
+                android:layout_marginLeft="10dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Taxi Stand"
+                android:id="@+id/buszs"
+                android:layout_marginLeft="60dp"/>
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp">
+
+            <ImageButton
+                android:id="@+id/train"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/buttontrain"
+                android:background="#FF8B86"/>
+            <ImageButton
+                android:id="@+id/transit"
+                android:layout_width="115dp"
+                android:src="@drawable/buttontransit"
+                android:background="#FF8B86"
+                android:layout_marginLeft="35dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Train Station"
+                android:id="@+id/airszssw"
+                android:layout_marginLeft="10dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Transit"
+                android:id="@+id/airszss"
+                android:layout_marginLeft="60dp"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sumo.traffic.traffic"
+   >
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#87E886"
+      >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal"
+         >
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                >
+
+
+      <!--          <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:text="My Destinations"
+                android:onClick="destinationclear"
+                android:id="@+id/dest"
+                android:layout_above="@+id/place_autocomplete_fragment"
+                android:layout_alignParentStart="true" />-->
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:text="My Schedule"
+                   android:onClick="schedule"
+                    android:id="@+id/sched"
+                    android:layout_above="@+id/place_autocomplete_fragment"
+                    android:layout_alignParentStart="true"
+            />
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:text="Summary of Tour"
+                    android:onClick="places"
+                    android:id="@+id/tour"
+                    android:layout_above="@+id/place_autocomplete_fragment"
+                    android:layout_alignParentStart="true"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+<HorizontalScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#BEFFB6"
+    android:layout_marginTop="70dp">
+
+    <LinearLayout
+
+    android:layout_width="match_parent"
+        android:layout_height="50dp" android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+
+
+<LinearLayout
+    android:id="@+id/hideme"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itinerary 1"
+        android:id="@+id/p1"
+android:onClick="package1"
+        android:layout_above="@+id/place_autocomplete_fragment"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itinerary 2"
+        android:onClick="package2"
+        android:id="@+id/p2"
+        android:layout_above="@+id/place_autocomplete_fragment"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itinerary 3"
+        android:onClick="package3"
+        android:id="@+id/p3"
+        android:layout_above="@+id/place_autocomplete_fragment"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itinerary 4"
+        android:id="@+id/p4"
+android:onClick="package4"
+        android:layout_above="@+id/place_autocomplete_fragment"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Itinerary 5 "
+        android:id="@+id/p5"
+        android:onClick="package5"
+        android:layout_above="@+id/place_autocomplete_fragment"
+        android:layout_alignParentStart="true" />
+</LinearLayout>
+
+                <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv1" android:scrollbars="horizontal" android:textColor="#5DFF5F" android:visibility="gone" />
+                <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv2"  android:scrollbars="horizontal" android:visibility="gone"/>
+                <TextView   android:layout_height="20dp" android:layout_width="400dp" android:id="@+id/tv3"  android:scrollbars="horizontal" android:visibility="gone" />
+    </LinearLayout>
+</HorizontalScrollView>
+
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+android:layout_marginTop="120dp"
+            android:layout_width="match_parent"
+
+            android:layout_height="450dp"
+            tools:context="com.sumo.traffic.traffic" />
+
+            <fragment
+                android:id="@+id/place_autocomplete_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#87E886"
+
+                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                android:layout_alignTop="@+id/map"
+                android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plot My Selected Destination"
+            android:id="@+id/selected"
+            android:onClick="selected"
+            android:layout_above="@+id/place_autocomplete_fragment"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Navigation Mode"
+            android:onClick="navigate"
+            android:id="@+id/navigator"
+            android:layout_above="@+id/place_autocomplete_fragment"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_gravity="top"
+        android:background="@drawable/shadow"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:background="#689F38"
+        android:layout_height="wrap_content"
+        design:menu="@menu/menu_navigation"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

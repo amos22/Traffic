@@ -1,0 +1,388 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="35dp"
+    android:layout_marginTop="40dp"
+    android:layout_marginRight="35dp"
+    android:layout_marginBottom="40dp"
+    android:background="#FFB74D"
+    tools:context="com.sumo.traffic.AreaFilter.store"
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.40"
+                android:weightSum="1">
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/prev"
+                    android:id="@+id/button1"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;-"
+                    android:onClick="prev"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="       Stores"
+                    android:textColor="#fff"
+                    android:id="@+id/transpo"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1.15" />
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/next"
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="->"
+                    android:onClick="next"/>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonhardware"
+                    android:id="@+id/hardware"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+
+
+                    />
+
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonfurniture"
+                    android:id="@+id/furniture"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#fff"
+                    android:text="Hardware"
+                    android:id="@+id/hard"
+                    android:layout_marginLeft="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="      Furniture"
+                    android:textColor="#fff"
+                    android:id="@+id/furniture1"
+                    android:layout_marginLeft="30dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonjew"
+                    android:id="@+id/jewel"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonliq"
+                    android:id="@+id/liq"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#fff"
+                    android:text="Jewel"
+                    android:id="@+id/airsz"
+                    android:layout_marginLeft="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="                Liquor"
+                    android:textColor="#fff"
+                    android:id="@+id/textView"
+                    android:layout_marginLeft="30dp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp">
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonpet"
+                    android:id="@+id/pet"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonstore"
+                    android:id="@+id/store"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="      Pet"
+                    android:textColor="#fff"
+                    android:id="@+id/pett"
+                    android:layout_marginLeft="10dp"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="           Store"
+                    android:textColor="#fff"
+                    android:id="@+id/buszs"
+                    android:layout_marginLeft="70dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <ImageButton
+                    android:id="@+id/bike"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@null"
+                    android:src="@drawable/buttonbike"
+
+                    />
+
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttonbook"
+                    android:id="@+id/book"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="     Bike"
+                    android:id="@+id/sasag"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="         Book"
+                    android:id="@+id/parke"
+                    android:layout_marginLeft="80dp"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttoncloth"
+                    android:id="@+id/clothing"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+
+
+                    />
+
+
+                <ImageButton
+                    android:background="@null"
+                    android:src="@drawable/buttondept"
+                    android:id="@+id/dept"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="   Clothing"
+                    android:id="@+id/clothing1"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Department"
+                    android:id="@+id/dept1"
+                    android:layout_marginLeft="80dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="50dp">
+
+                <ImageButton
+                    android:id="@+id/elec"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background= "@null"
+                    android:src="@drawable/buttonelecr"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="                   Electricity"
+                    android:textColor="#fff"
+                    android:id="@+id/sasa"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+            </LinearLayout>
+
+            //Last Ignore Btm//
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

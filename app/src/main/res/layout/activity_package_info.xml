@@ -1,0 +1,415 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#87E886"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView5"
+        android:src="@drawable/loaders1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+            <!--    <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/imageView5"
+                        android:src="@drawable/east"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="100dp"
+                        android:layout_gravity="right" />
+                </LinearLayout> -->
+
+
+
+            <!--TITLE-->    <RelativeLayout
+            android:layout_width="319dp"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="#87E886">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Package: "
+                android:id="@+id/textView24"
+                android:textColor="#000"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="77dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:textColor="#000"
+                android:id="@+id/packagenumber"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/textView24" />
+
+        </RelativeLayout>
+
+            <!--BUtton-->
+
+
+            <!--BUtton-->
+            <!--ABOUT-->
+
+
+            <!--CONTACT-->
+
+
+            <!--MAP-->
+
+
+            <!--REVIEWS-->
+
+            <!--BRING-->
+            <!--   <RelativeLayout
+                   android:layout_width="350dp"
+                   android:layout_height="250dp"
+                   android:orientation="horizontal"
+                   android:layout_marginTop="10dp"
+                   android:background="#BEFFB6">
+                   <ImageView
+                       android:layout_marginLeft="10dp"
+                       android:layout_width="170dp"
+                       android:layout_height="220dp"
+                       android:id="@+id/imageView12"
+                       android:src="@drawable/east"
+                       android:layout_centerVertical="true"
+                       android:layout_alignParentStart="true" />
+                   <ImageView
+                       android:layout_marginLeft="20dp"
+                       android:layout_width="100dp"
+                       android:layout_height="50dp"
+                       android:id="@+id/imageView14"
+                       android:src="@drawable/east"
+                       android:layout_centerVertical="true"
+                       android:layout_toEndOf="@+id/imageView12" />
+
+                   <TextView
+                       android:layout_width="120dp"
+                       android:layout_height="50dp"
+                       android:text="What you should not bring"
+                       android:textSize="15dp"
+                       android:textColor="#000000"
+                       android:id="@+id/textView12"
+                       android:layout_above="@+id/imageView14"
+                       android:layout_alignStart="@+id/imageView14" />
+
+               </RelativeLayout> -->
+
+
+
+
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+            <!-- to be commented xml block goes here -->
+
+
+
+
+
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+        <!-- to be commented xml block goes here -->
+
+
+
+
+        <!--       <LinearLayout
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_marginTop="20dp">
+                   <ImageButton
+                       android:layout_width="wrap_content"
+                       android:layout_height="100dp"
+                       android:id="@+id/imageButton3"
+                       android:background="@drawable/faqz"
+                       android:layout_alignParentBottom="true"
+                       android:layout_alignParentStart="true"
+                       android:layout_marginBottom="10dp"/>
+
+               </LinearLayout>
+
+   -->
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="10dp"
+        android:background="#87E886" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="List of Places:"
+            android:textSize="30dp"
+            android:id="@+id/textView26"
+            android:textColor="#000"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Places"
+            android:id="@+id/vplaces"
+            android:onClick="vplaces"
+            android:layout_alignTop="@+id/textView26"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#BEFFB6"
+        android:layout_weight="0.21">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000"
+            android:id="@+id/p1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+ />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000"
+            android:id="@+id/p2"
+            android:layout_below="@+id/p1"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000"
+            android:id="@+id/p3"
+            android:layout_below="@+id/p2"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000"
+            android:id="@+id/p4"
+            android:layout_below="@+id/p3"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/p5"            android:textColor="#000"
+            android:layout_below="@+id/p4"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+                    <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#BEFFB6"
+                android:layout_weight="0.21" >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Approximate Duration:"
+                    android:id="@+id/aduration"
+
+                    android:textColor="#000"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Approximate Cost:"
+                    android:id="@+id/textView34"
+                    android:textColor="#000"
+                    android:layout_below="@+id/duration"
+                    android:layout_alignStart="@+id/duration" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Good for:"
+                    android:textColor="#000"
+                    android:id="@+id/textView35"
+                    android:layout_below="@+id/cost"
+                    android:layout_alignStart="@+id/cost" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/duration"
+                    android:layout_below="@+id/aduration"
+                    android:layout_alignStart="@+id/aduration" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:textColor="#000"
+                    android:id="@+id/cost"
+                    android:layout_below="@+id/textView34"
+                    android:layout_alignStart="@+id/textView34" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:textColor="#000"
+                    android:id="@+id/goodfor"
+                    android:layout_below="@+id/textView35"
+                    android:layout_alignStart="@+id/textView35" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="#BEFFB6"
+                android:layout_weight="0.21" >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Reminder:"
+                    android:id="@+id/xawa"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Approximation of cost and duration might be vary depends on user's preference."
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:layout_below="@+id/xawa"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="10dp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

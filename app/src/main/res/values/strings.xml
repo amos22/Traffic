@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TARA</string>
+    <string name="title_activity_traffic">TARA</string>
+
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="remove">Remove</string>
+    <string name="clear">Clear</string>
+    <string name="pancamera">PanCamera</string>
+    <string name="toggle_style">Toggle Style</string>
+    <string name="directions_input">Directions Input</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="load_directions">Load directions</string>
+    <string name="tooltip">This is the tooltip</string>
+    <string name="start_animation">Start Animation</string>
+    <string name="stop_animation">Stop Animation</string>
+    <string name="clear_markers">Clear markers</string>
+    <string name="add_default_locations">Add Default Locations</string>
+
+    <string name="Name">Your first destination name</string>
+
+
+    <string name="Places">Places</string>
+    <string name="Directions">Directions</string>
+    <string name="Route">Route</string>
+    <string name="Reset">Reset</string>
+    <string name="Traffic">Traffic</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="hello">Hello!</string>
+    <string name="no_notifications_set">This is TARA Alarm clock. This is where you store your Schedules.</string>
+    <string name="enter_destination">Please enter your destination here...</string>
+    <string name="pick_a_time">Tap on the button below to pick a time for the notification to be sent</string>
+    <string name="time_picked">Time picked:</string>
+    <string name="reminder">Remind yourself, you might forget something</string>
+    <string name="reminder_explanation">The text you enter below will be shown as the notification title. Leave blank
+    for default title.</string>
+    <string name="destination">Destination:</string>
+    <string name="notification_set">Notification set!</string>
+    <string name="notification_modified">Notification modified!</string>
+    <string name="notification_deleted">Notification deleted!</string>
+
+
+    <string name="attribution">Weather data by OpenWeatherMap.org</string>
+    <string name="error_fetch_weather">Could not fetch weather data</string>
+    <string name="error_location_unavailable">Could not get current location</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="monday">Monday</string>
+    <string name="sky_is_clear">sky is clear</string>
+    <string name="nineteen_degrees">19°</string>
+    <string name="fifteen_degrees">15°</string>
+
+
+    <string name="asd"><u>Select Destination Package</u></string>
+    <string name="asd2"><u>Select Itinerary Creator</u></string>
+
+
+    <!--P1-->
+    <string name="p1">Package 1</string>
+    <string name="p1_desc">TARA offers package 1, which consists of different tourist attractions. From nature wonders to interesting historic sites, museums and once-in-a-lifetime experiences. Check out the following tourist attractions in Quezon City, Philippines.</string>
+    <string name="artin">Art in Island</string>
+    <string name="desc_artin">Art in Island allows visitors to interact and have fun with the art pieces. You can take as much pictures and videos as you want!. Here in Art in Island we want you to BE PART OF ART!</string>
+    <string name="qch">Quezon City Heritage</string>
+    <string name="desc_heritage">This large circular park is good place to go for a morning walk or jog or simple for stroll. It also has a museum at the center dedicated to the city founder, Manuel L. Quezon.</string>
+    <string name="qmx">Quezon City Experience</string>
+    <string name="desc_qmx">QCX is an interactive and socio-cultural green building compliant city museum which was inaguarated in Quezon Memorial Circle.</string>
+    <string name="cof">Circle of Fun</string>
+    <string name="desc_cof">Circle of Fun is a kids theme park, it has lots of rides and other attractions available for kids to enjoy. People typically spend up to 2 hours here.</string>
+    <string name="duration1">Approximate Duration : \n10 Hrs/day (From 10 AM - 8 PM). \nApproximate Cost \nPhp 3500 - 5500 ,good for 4 - 6 person \nReminder : Approximation might vary depends on user\'s preference \n</string>
+    <!--  <string name="reminder1">Reminder : \n</string>-->
+
+
+    <!--P2-->
+    <string name="p2">Package 2</string>
+    <string name="p2_desc">TARA offers package 2, which consists of different tourist attractions. From nature wonders to interesting historic sites, museums and once-in-a-lifetime experiences. Check out the following tourist attractions in Quezon City, Philippines.</string>
+    <string name="balara">Balara Filter Park</string>
+    <string name="desc_balara">Balara Filter park is one of the oldest of Quezon City park. It has swimming pools, a picnic grove, a windmill park, and art deco buildings.</string>
+    <string name="uptown">UP Town Center</string>
+    <string name="desc_uptown">UPTC is a shopping center in Quezon City, Metro Manila and managed by the Ayala Mall Group.\nOpens every: Mon-Thu from 10AM - 9PM , Fri - Sun from 10AM - 10PM</string>
+    <string name="stamaria">Sta Maria Dela Strada</string>
+    <string name="desc_stamaria">Sta. Maria Dela Strada Parish is a Wedding Church located in Katipunan Ave.</string>
+    <string name="ateneo">Ateneo Art Gallery</string>
+    <string name="desc_ateneo">The Ateneo Art Gallery is widely recognized today as the first museum of Philippines modern art, showcases works by postwar Filipino artists.\nOpens every: Mon-Fri from 8AM - 7:30PM , Sat from 8AM - 6PM</string>
+    <string name="duration2">Approximate Duration : \n7 Hrs/day (From 10 AM - 5 PM). \nApproximate Cost \nPhp 2600 - 4200 ,good for 2 - 5 person \nReminder : Approximation might vary depends on user\'s preference \n</string>
+
+    <!--P3-->
+    <string name="p3">Package 3</string>
+    <string name="p3_desc">TARA offers package 3, which consists of different tourist attractions. From nature wonders to interesting historic sites, museums and once-in-a-lifetime experiences. Check out the following tourist attractions in Quezon City, Philippines.</string>
+    <string name="edsa">Edsa Shrine</string>
+    <string name="desc_edsa">It is a perfectly located along the way giving chances to people to at lease pay visit in the church.\nMorning : Mon-Sat 9AM - 12PM , Afternoon: 1:30PM - 6:00PM</string>
+    <string name="maginhwa">Maginhawa Food Park</string>
+    <string name="desc_maginhwa">The latest food community to hit Quezon City, it features 12 new food concepts housed and backyard picnic style dining.\nOpens every Tue-Sun from 5PM - 2AM</string>
+    <string name="church">Church Gesu</string>
+    <string name="desc_church">The Church of Gesu is the Roman Catholic church of the Ateneo de Manila University campus in Quezon City in the Philippines.\nFor more details call: 42660014076</string>
+    <string name="up">UP</string>
+    <string name="desc_up">The Philippines premier institution of higher learning. Links to all autonomous units and system-wide updates.\nFor more details visit: up.edu.ph</string>
+    <string name="east">Eastwood City</string>
+    <string name="desc_east">Your 24/7 destination for shopping dining and entertainment.\nOpens every: Mon-Sat from 11AM - 10PM , Sunday from 10AM - 10PM only.</string>
+
+
+    <!--P4-->
+    <string name="p4">Package 4</string>
+    <string name="p4_desc">TARA offers package 4, which consists of different tourist attractions. From nature wonders to interesting historic sites, museums and once-in-a-lifetime experiences. Check out the following tourist attractions in Quezon City, Philippines.</string>
+    <string name="bayani">Bantayog ng mga Bayani</string>
+    <string name="desc_bayani">A memorial dedicated to people deemed as heroes during the Martial Law period and People Power Revolution.\nOpens Mon-Fri from 10AM - 4PM</string>
+    <string name="zoo">Wildlife Mini Zoo</string>
+    <string name="desc_zoo">Wildlife Rescue Center is like a mini zoo, If you want to gauge whether your little one is ready for his first ever zoo visit. \nCome visit us \n Opens every: Tue-Sun from 10AM - 4PM</string>
+    <string name="rita">Sta. Rita de Casia Parish</string>
+    <string name="desc_ritaa">The church frequent for Sunday mass because it is private subdivision. The service is solemn and the choir singers are great. \nOpens every Mon- Sat</string>
+    <string name="pagasa">PAGASA Planetarium</string>
+    <string name="desc_pagasa">It provides a perfect setting for all sorts of econmic educational tours whose most significant task would be present the numerous fascinating and amazing facts to everyone. \nFor more details call : 02-927-5509</string>
+
+
+    <!--P5-->
+    <string name="p5">Package 5</string>
+    <string name="p5_desc">TARA offers package 5, which consists of different tourist attractions. From nature wonders to interesting historic sites, museums and once-in-a-lifetime experiences. Check out the following tourist attractions in Quezon City, Philippines.</string>
+    <string name="sining">Sining Kamalig</string>
+    <string name="desc_sining">Sining Kamalig is a gallery of contemporary art. Drop by to enjoy the beautiful and interesting changing exhibition of Flipino artists. \nFri-Sun: 10AM - 9PM</string>
+    <string name="fernwood">Fernwood Gardens</string>
+    <string name="desc_fernwood">The best garden wedding venue in the Philippines today. The most popular wedding events venue here in Metro Manila. \nMon-Sun: 9AM - 7PM</string>
+    <string name="armed">Armed Forces Museum</string>
+    <string name="desc_armed">The museum provides an overview of the Philippine army. You will be able to see arms and weapons and get and idea of the history of the AFP. \nMon-Fri: 9AM - 6PM</string>
+    <string name="mystery">Mystery Manila</string>
+    <string name="desc_mystery">Mystery Manila is the first live role playing game in the Philippines. It is an activity that allows people to try something new and challenging. \nFor more details call: +632 501 2824</string>
+</resources>
+

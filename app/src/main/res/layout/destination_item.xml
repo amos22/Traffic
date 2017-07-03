@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_item_string"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:paddingStart="8dp"
+        android:textSize="18sp"
+        tools:textSize="12sp"
+        android:textColor="#000000"/>
+
+    <!-- ADDED SPACER VIEW  -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <!-- /ADDED SPACER VIEW -->
+    <Button
+        android:id="@+id/delete_btn"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
+        android:background="@android:drawable/ic_delete"
+        />
+
+    <Button
+        android:id="@+id/edit_btn"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_toStartOf="@id/delete_btn"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@android:drawable/ic_delete"
+        />
+
+
+</RelativeLayout>

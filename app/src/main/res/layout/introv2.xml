@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+
+    android:weightSum="1">
+   <!-- android:background="#4CAF50">-->
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="420dp"
+        android:background="#73967b"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/frameLayout">
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:id="@+id/relativeLayout"
+            android:layout_alignParentBottom="true">
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_marginTop="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/imageView20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Remember to be alert at all times. \n Stay aware of your surroundings."
+                android:textColor="#000"
+                android:id="@+id/textView14"
+                android:layout_marginBottom="47dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:weightSum="1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/circular"
+            android:max="100"
+            android:progress="20"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/i2"
+            android:layout_gravity="center"
+            android:id="@+id/imageView20"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travelers Automated Route Application"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:textColor="#FFf"
+            android:id="@+id/textView13"
+            android:layout_above="@+id/progressBar"
+            android:layout_toEndOf="@+id/frameLayout"
+            android:layout_marginBottom="49dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/taraupp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

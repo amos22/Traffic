@@ -1,0 +1,447 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="35dp"
+    android:layout_marginTop="40dp"
+    android:layout_marginRight="35dp"
+    android:layout_marginBottom="40dp"
+    android:background="#2a873e"
+    tools:context="com.sumo.traffic.AreaFilter.PlacesFilters"
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.40"
+                android:weightSum="1">
+
+                <ImageButton
+                    android:id="@+id/button1"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                 android:src="@drawable/prev"
+                    android:background="#2a873e"
+                    android:onClick="prev" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="User&apos;s Need"
+                    android:id="@+id/transpo"
+                    android:textSize ="25dp"/>
+
+                <ImageButton
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/next"
+                    android:background="#2a873e"
+                    android:layout_marginLeft="10dp"
+                    android:onClick="next" />
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/atmachine"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/atm"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/pol"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/policezx"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="ATM"
+                    android:id="@+id/airsz"
+                    android:layout_marginLeft="30dp"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Police"
+                    android:id="@+id/busz"
+                    android:layout_marginLeft="115dp"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+
+                <Button
+                    android:id="@+id/fire"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/fire"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/hos"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/hospitalz"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Fire Station"
+                    android:id="@+id/airszs"
+                    android:layout_marginLeft="10dp"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Hospital"
+                    android:id="@+id/buszs"
+                    android:layout_marginLeft="70dp"/>
+
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/phar"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/pharmarcy"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/parkings"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/parkingz"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Pharmacy"
+                    android:id="@+id/sasaaaa"
+                    android:layout_marginLeft="10dp"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Parking"
+                    android:id="@+id/parkee"
+                    android:layout_marginLeft="80dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/del"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/delivery"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/hair"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/hair"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Delivery"
+                    android:id="@+id/sasaa"
+                    android:layout_marginLeft="18dp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Salon"
+                    android:id="@+id/parkea"
+                    android:layout_marginLeft="115dp"/>
+            </LinearLayout>
+
+            <!-- NEXT -->
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/gym"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/gym"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/carwash"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/carwash"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Gym"
+                    android:id="@+id/sasaaq"
+                    android:layout_marginLeft="35dp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Car wash"
+                    android:id="@+id/parkeaz"
+                    android:layout_marginLeft="115dp"/>
+            </LinearLayout>
+
+            <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/carepr"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/carepr"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/bnk"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/bankcy"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Car Repair"
+                    android:id="@+id/sasaaqd"
+                    android:layout_marginLeft="10dp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Bank"
+                    android:id="@+id/parkeazs"
+                    android:layout_marginLeft="100dp"
+                    android:layout_weight="0.23" />
+            </LinearLayout>
+
+
+            <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->
+            <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/laundry"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:background= "@drawable/laundryzx"
+
+                    />
+
+
+                <Button
+                    android:id="@+id/gas"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="50dp"
+
+                    android:background="@drawable/gas"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Laundry"
+                    android:id="@+id/sasaaqde"
+                    android:layout_marginLeft="10dp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Gas Station"
+                    android:id="@+id/parkeazsq"
+                    android:layout_marginLeft="85dp"
+                    android:layout_weight="0.23" />
+            </LinearLayout>
+
+
+            <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->
+            <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->        <!-- NEXT -->
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>
