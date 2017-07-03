@@ -79,6 +79,7 @@ android:layout_margin="5dp"
                 fab:menu_labels_ellipsize="end"
                 fab:menu_labels_singleLine="true"
                 fab:menu_fab_label="Menu label"
+
                 android:layout_marginBottom="12dp"
                 android:layout_marginRight="15dp">
 
