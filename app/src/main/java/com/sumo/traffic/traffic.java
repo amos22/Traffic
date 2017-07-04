@@ -21,11 +21,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.DragEvent;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -163,15 +166,17 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
     static int qp1, qp2, qp3, qp4, qp5;
 
-
-    static int mp1, mp2, mp3, mp4, mp5;
-
-    static int bp1, bp2, bp3, bp4, bp5;
+static int packs , itc;
 
     static Button nav;
 
-    static int checklist = 0;
+   com.github.clans.fab.FloatingActionButton fab1,fab2,fab3;
+    com.github.clans.fab.FloatingActionMenu menured;
 
+    static int checklist = 0;
+    float dX;
+    float dY;
+    int lastAction;
 
     static String place_id = null;
     String placeID = "";
@@ -196,81 +201,64 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-/*
-        hideme = (LinearLayout)
-                findViewById(R.id.hideme);
-
-        selected = (Button)
-                findViewById(R.id.selected);
-        nav = (Button)
-                findViewById(R.id.navigator);
-
-        if (TemplateOrChoices.scroll == 1) {
-            hideme.setVisibility(View.VISIBLE);
-            selected.setVisibility(View.INVISIBLE);
-            nav.setVisibility(View.INVISIBLE);
-
-        } else if (TemplateOrChoices.scroll == 0) {
-            selected.setVisibility(View.VISIBLE);
-            hideme.setVisibility(View.INVISIBLE);
-            nav.setVisibility(View.INVISIBLE);
-        } else if (TemplateOrChoices.scroll == 2) {
-            selected.setVisibility(View.INVISIBLE);
-            hideme.setVisibility(View.INVISIBLE);
-            nav.setVisibility(View.VISIBLE);
-        }*/
-
- /*       final View actionB = findViewById(R.id.action_b);
-
-        FloatingActionButton actionC = new FloatingActionButton(getBaseContext());
-        actionC.setTitle("Hide/Show Action above");
-        actionC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
-            }
-        });
-
-        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
-        menuMultipleActions.addButton(actionC);
 
 
-        final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
-        actionA.setOnClickListener(new View.OnClickListener() {
+
+fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
+
+        fab2 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab2);
+
+
+        fab3 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab3);
+        menured = (  com.github.clans.fab.FloatingActionMenu) findViewById(R.id.menu_red);
+
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionA.setTitle("Action A clicked");
+                Toast.makeText(traffic.this, "Test1", Toast.LENGTH_SHORT).show();
             }
         });
-*/
 
 
-  /*      b2 = (Button) findViewById(R.id.sched);
-        b3 = (Button) findViewById(R.id.tour);
-*/
-
-/*
-        if (button1 == 1) {
-            b1.setText("Clear Destinations");
-
-        } else if (button1 == 2) {
-            b1.setText("My Destinations");
-        }
-        else if (button1 == 3) {
-            b1.setText("Enable StreetMap");
-
-        }*/
 
 
-  /*      if (button3 == 1) {
-            b3.setText("Add Destinations");
-
-        } else if (button3 == 2) {
-            b3.setText("Summary Of Tour");
+        if (packs == 1 )
+        {
+            fab2.setLabelText("Summary of Tour");
 
         }
+        else if (itc == 1)
+        {
+            fab2.setLabelText("Add more destination");
+        }
 
-*/
+        fab1.setLabelText("Enable StreetMap");
+
+
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (streetmapenabled == 0) {
+                    Toast.makeText(traffic.this, "StreetMap Enabled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(traffic.this, "Click on any marker", Toast.LENGTH_SHORT).show();
+                    streetmapenabled = 1;
+                    fab1.setLabelText("Disable StreetMap");
+                }
+                else if (streetmapenabled == 1)
+                {
+                    Toast.makeText(traffic.this, "StreetMap Disabled", Toast.LENGTH_SHORT).show();
+                    streetmapenabled = 0;
+                    fab1.setLabelText("Enable StreetMap");
+                }
+
+
+
+            }
+        });
+
+
+
+
         main = (CoordinatorLayout) findViewById(R.id.activity_main);
 
 
@@ -1301,7 +1289,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
     public void places(View view) {
-        if (button1 == 1) {
+      /*  if (button1 == 1) {
             ChoicesOfPlace.open = 1;
             Intent i = new Intent(traffic.this, ChoicesOfPlace.class);
             startActivity(i);
@@ -1310,7 +1298,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             Intent i = new Intent(traffic.this, SummaryOfTour.class);
             startActivity(i);
         }
-
+*/
 
     }
 
@@ -1504,7 +1492,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
     public void destinationclear(View view) {
-        if (button1 == 1) {
+
             mMap.clear();
             points.clear();
             markers.clear();
@@ -1551,35 +1539,6 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
             points.add(myLatLng);
 
-        } else if (button1 == 2) {
-            if (qp1 == 1) {
-                Intent i = new Intent(traffic.this, welcome_qcpackage1.class); //WelcomeActivity
-                startActivity(i);
-
-
-            } else if (qp2 == 1) {
-
-                Intent x = new Intent(traffic.this, welcome_qcpackage2.class);
-                startActivity(x);
-
-            } else if (qp3 == 1) {
-                Intent q = new Intent(traffic.this, welcome_qcpackage3.class);
-                startActivity(q);
-
-            } else if (qp4 == 1) {
-                Intent e = new Intent(traffic.this, welcome_qcpackage4.class);
-                startActivity(e);
-
-            } else if (qp5 == 1) {
-                Intent d = new Intent(traffic.this, welcome_qcpackage5.class);
-                startActivity(d);
-            }
-
-
-        } else if (button1 == 3) {
-            Toast.makeText(traffic.this, "StreetMap Enabled", Toast.LENGTH_SHORT).show();
-            streetmapenabled = 1;
-        }
 
 
     }

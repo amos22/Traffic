@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
+import android.view.DragEvent;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -105,6 +106,11 @@ public class FloatingActionMenu extends ViewGroup {
     private Context mLabelsContext;
     private String mMenuLabelText;
     private boolean mUsingMenuLabel;
+
+
+    float dX;
+    float dY;
+    int lastAction;
 
     public interface OnMenuToggleListener {
         void onMenuToggle(boolean opened);
@@ -469,6 +475,7 @@ public class FloatingActionMenu extends ViewGroup {
                         toggle(mIsAnimated);
                     }
                 });
+
             }
         }
     }
@@ -1011,6 +1018,7 @@ public class FloatingActionMenu extends ViewGroup {
     }
 
     public void setOnMenuButtonLongClickListener(OnLongClickListener longClickListener) {
-        mMenuButton.setOnLongClickListener(longClickListener);
+      mMenuButton.setOnLongClickListener(longClickListener);
+
     }
 }

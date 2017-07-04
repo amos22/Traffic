@@ -87,25 +87,30 @@ android:layout_margin="5dp"
                     android:id="@+id/fab1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:src = "@drawable/streetmap"
+                    android:padding="5dp"
+                    fab:fab_label="Enable StreetMap"
                     fab:fab_size="mini"
-                    fab:fab_label="Disabled" />
+                  />
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/fab2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+android:src="@drawable/ic_action_name"
+                    android:onClick="places"
+                    fab:fab_label="Destinations"
                     fab:fab_size="mini"
-                    fab:fab_label="Remove button" />
+                   />
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/fab3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                  android:src="@drawable/schedule"
+                    android:onClick="schedule"
                     fab:fab_size="mini"
-                    fab:fab_label="Restore Button" />
+                    fab:fab_label="My Schedule" />
 
             </com.github.clans.fab.FloatingActionMenu>
 
