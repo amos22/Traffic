@@ -221,7 +221,6 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
 
 
-
         if (packs == 1 )
         {
             fab2.setLabelText("Summary of Tour");
@@ -457,6 +456,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         });
 
     }
+
 
 
     @Override

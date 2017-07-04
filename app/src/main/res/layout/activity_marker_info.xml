@@ -16,28 +16,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/relative_layout"
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</LinearLayout>
 
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/place_name_text"
-                android:layout_width="wrap_content"
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="View in StreetView"
+                    android:onClick="street"
+                    android:id="@+id/button7"
+                    android:layout_alignBottom="@+id/place_name_text"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/powered_by_google" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/ratingBar"
-                android:layout_marginStart="12dp"
-                android:text="Place name"
-                android:textSize="30sp"
-                android:textStyle="normal|bold" />
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/place_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="12dp"
+                    android:text="Place name"
+                    android:textSize="30sp"
+                    android:textStyle="normal|bold" />
+            </LinearLayout>
+
+
 
             <RelativeLayout
                 android:id="@+id/relative_pager"
@@ -140,16 +170,7 @@
                 android:layout_below="@id/number_layout"
                 android:layout_marginTop="10dp" />
 
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="StreetView"
-                android:onClick="street"
-                android:id="@+id/button7"
-                android:layout_alignBottom="@+id/place_name_text"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/powered_by_google" />
-        </RelativeLayout>
+
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>

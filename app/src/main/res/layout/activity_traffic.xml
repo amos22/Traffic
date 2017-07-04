@@ -71,7 +71,17 @@ android:layout_margin="5dp"
     android:layout_alignParentBottom="true"
   >
 
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/Plot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src = "@drawable/streetmap"
+        android:padding="5dp"
+        android:onClick="selected"
+        fab:fab_label="Enable StreetMap"
+        android:layout_margin="10dp"
 
+        />
             <com.github.clans.fab.FloatingActionMenu
                 android:id="@+id/menu_red"
                 android:layout_width="match_parent"

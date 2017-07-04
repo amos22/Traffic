@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.vision.text.Line;
@@ -23,8 +24,8 @@ import android.widget.LinearLayout;
 
 public class TemplateOrChoices extends AppCompatActivity {
 
-//ImageButton pack;
-Button creator;
+ImageButton pack;
+ImageButton creator;
     static int pop = 0;
     static int scroll = 0;
 
@@ -34,10 +35,8 @@ LinearLayout lay1 , lay2;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template_or_choices);
-/*
 
-    */
-/*     pack = (Button) findViewById(R.id.packages);
+     pack = (ImageButton) findViewById(R.id.packages);
 
         pack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,11 +48,10 @@ LinearLayout lay1 , lay2;
                 Intent i = new Intent(TemplateOrChoices.this, traffic.class);
                 startActivity(i);
                 finish();
-            }*//*
+            }
 
         });
-    */
-/*   // creator = (Button) findViewById(R.id.creator);
+    creator = (ImageButton) findViewById(R.id.creator);
         creator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +67,7 @@ LinearLayout lay1 , lay2;
 
 
             }
-        });*//*
+        });/*
 
 
 */
