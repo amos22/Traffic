@@ -181,7 +181,8 @@ static int packs , itc;
     static String place_id = null;
     String placeID = "";
     List<String> placesId = new ArrayList<String>();
-
+    private final int interval = 2000; // 1 Second
+    private Handler handler = new Handler();
     ArrayList<JSONArray> listOfRouteArray = new ArrayList<>();
     private ArrayList<Integer> listOfIndicesOfCurrentRoutes = new ArrayList<>();
     private ArrayList<Polyline> polylines = new ArrayList<>();
@@ -202,6 +203,16 @@ static int packs , itc;
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+
+       Runnable runnable = new Runnable(){
+            public void run() {
+             selected();
+            }
+        };
+
+        handler.postAtTime(runnable, System.currentTimeMillis()+interval);
+        handler.postDelayed(runnable, interval);
 
 
 fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
@@ -535,12 +546,15 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
     public void onMapReady(GoogleMap googleMap) {
 
 
+
         try {
             // Customise the styling of the base map using a JSON object defined
             // in a raw resource file.
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.style_json));
+
+
 
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
@@ -641,6 +655,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         }
 
 
+
     }
 
 
@@ -657,7 +672,8 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            mMap.getUiSettings().setMyLocationButtonEnabled(false);
+            mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
         }
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
@@ -669,7 +685,6 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         }
        /* mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);*/
         mMap.setMyLocationEnabled(true);
-
 
 
         MarkerOptions markerOptions = new MarkerOptions()
@@ -1303,7 +1318,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
     }
 
 
-    public void selected(View view) {
+    public void selected() {
 
 
         if (InfoOfUp.select == 1) {
@@ -4354,7 +4369,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         int result = resultCode;
 
 
-        mMap.clear();
+
 
 
         //add markers back

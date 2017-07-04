@@ -96,7 +96,7 @@ public class DestinationItemAdapter extends BaseAdapter implements ListAdapter {
                     traffic.distances.remove(position);
                     traffic.durations.remove(position);
                     traffic.mList.remove(position);
-                    traffic.points.remove(position);
+                   traffic.points.remove(position);
                     traffic.markers.remove(position);
                     traffic.timestoStay.remove(position);
                     traffic.reminders.remove(position);
