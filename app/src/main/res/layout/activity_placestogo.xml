@@ -14,17 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:weightSum="1">
+
+            android:weightSum="1"
+
+            >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="0.40"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:background="@null"
@@ -41,10 +45,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="         Places"
+                    android:text="Places"
                     android:textColor="#fff"
                     android:id="@+id/transpo"
-                    android:layout_weight="1.15"
+
                     android:layout_marginTop="15dp"/>
 
                 <ImageButton
@@ -69,7 +73,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:gravity="center">
 
                 <ImageButton
                     android:background="@null"
@@ -98,7 +103,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,7 +129,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:gravity="center">
                 <ImageButton
                     android:background="@null"
                     android:src="@drawable/buttonbowl"
@@ -145,7 +152,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,20 +162,22 @@
                     android:text="Bowling"
                     android:id="@+id/airsz"
                     android:layout_marginLeft="30dp"/>
+
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_marginLeft="30dp"
                     android:text="                Cafe"
-                    android:textColor="#fff"
-                    android:id="@+id/textView"
-                    android:layout_marginLeft="30dp" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#fff" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_marginTop="50dp">
                 <ImageButton
                     android:background="@null"
@@ -189,33 +199,38 @@
                     android:layout_marginLeft="50dp"
                     />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="    Camp"
-                    android:textColor="#fff"
                     android:id="@+id/pett"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="    Camp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="          Casino"
-                    android:textColor="#fff"
+                    android:textColor="#fff" />
+
+                <TextView
                     android:id="@+id/buszs"
-                    android:layout_marginLeft="70dp"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:text="          Casino"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#fff" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:gravity="center">
                 <ImageButton
                     android:id="@+id/club"
                     android:layout_width="75dp"
@@ -237,7 +252,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center">
                 <TextView
                     android:textColor="#fff"
                     android:layout_width="wrap_content"
@@ -259,6 +275,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_marginTop="50dp">
                 <ImageButton
                     android:background="@null"
@@ -276,12 +293,14 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginLeft="50dp"
+
                     />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center">
                 <TextView
                     android:textColor="#fff"
                     android:layout_width="wrap_content"
@@ -304,6 +323,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_marginTop="50dp">
                 <ImageButton
                     android:background="@null"
@@ -326,6 +346,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal" >
                 <TextView
                     android:textColor="#fff"
@@ -346,33 +367,35 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <ImageButton
-                    android:background="@null"
-                    android:src="@drawable/buttonstadium"
                     android:id="@+id/stadium"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:layout_marginRight="50dp"
                     android:layout_marginLeft="20dp"
-                    />
-                <ImageButton
+                    android:layout_marginRight="50dp"
                     android:background="@null"
-                    android:src="@drawable/buttonzoo"
+                    android:src="@drawable/buttonstadium" />
+
+                <ImageButton
                     android:id="@+id/zoo"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_marginLeft="50dp"
-                    />
+                    android:background="@null"
+                    android:src="@drawable/buttonzoo" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal" >
                 <TextView
                     android:textColor="#fff"

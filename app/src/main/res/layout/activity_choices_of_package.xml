@@ -17,9 +17,9 @@
         android:id="@+id/expandablelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:background="#fff"
         android:orientation="vertical"
-        android:background="#fff">
+        android:padding="12dp">
 
         <ImageView
             android:id="@+id/imageview"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            android:src="@drawable/a1"/>
+            android:src="@drawable/a1" />
 
 
         <LinearLayout
@@ -37,20 +37,22 @@
             android:contentDescription="@null"
 
 
-            app:canExpand="true"
-            android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:orientation="vertical"
+            app:canExpand="true">
 
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Info about the package"
-                android:textSize="10dp"
-                android:textColor="#000"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Info about the package"
+                    android:textColor="#000"
+                    android:textSize="10dp" />
 
 
             </LinearLayout>
@@ -61,34 +63,22 @@
                 android:layout_marginTop="6dp"
 
                 >
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Get this package"
-                    android:textSize="10dp"
-                    android:textColor="#000"/>
+                    android:textColor="#000"
+                    android:textSize="10dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
 
-               >
-                <TextView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Pwede ka maglagay ng pics dito, info about dun sa package. ikaw bahala"
-                    android:textSize="20dp"
-                    android:textColor="#000"/>
-            </LinearLayout>
 
         </LinearLayout>
 
 
     </com.kyo.expandablelayout.ExpandableLayout>
-
 
 
     <com.kyo.expandablelayout.ExpandableLayout
@@ -113,6 +103,7 @@
 
 
             app:canExpand="true">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -125,7 +116,10 @@
                 android:text="Get this"
                 android:textSize="10dp"
                 android:textColor="#000"/>
+
         </LinearLayout>
 
     </com.kyo.expandablelayout.ExpandableLayout>
+
+
 </LinearLayout>

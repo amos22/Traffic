@@ -17,7 +17,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="1">
@@ -25,9 +25,11 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="horizontal"
                 android:layout_weight="0.40"
-                android:weightSum="1">
+                android:gravity="center"
+          >
 
                 <ImageButton
                     android:background="@null"
@@ -44,11 +46,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="       Stores"
+                    android:text="Stores"
                     android:textColor="#fff"
                     android:id="@+id/transpo"
                     android:layout_marginTop="15dp"
-                    android:layout_weight="1.15" />
+               />
 
                 <ImageButton
                     android:background="@null"
@@ -72,6 +74,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_marginTop="50dp">
 
                 <ImageButton
@@ -101,6 +104,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -127,6 +131,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_marginTop="50dp">
                 <ImageButton
@@ -153,7 +158,7 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content"    android:gravity="center"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -179,7 +184,7 @@
 
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="fill_parent"    android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp">
                 <ImageButton
@@ -208,7 +213,7 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content"    android:gravity="center"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -236,7 +241,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="horizontal"    android:gravity="center"
                 android:layout_marginTop="50dp">
 
                 <ImageButton
@@ -264,7 +269,7 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content"    android:gravity="center"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -291,7 +296,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="horizontal"    android:gravity="center"
                 android:layout_marginTop="50dp">
 
                 <ImageButton
@@ -320,7 +325,7 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content"     android:gravity="center"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -359,7 +364,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content"     android:gravity="center"
                 android:orientation="horizontal" >
 
                 <TextView

@@ -18,148 +18,144 @@
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="0.40"
-            android:weightSum="1">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageButton
-                android:background="@null"
-                android:src="@drawable/prev"
                 android:id="@+id/button1"
                 android:layout_width="72dp"
                 android:layout_height="wrap_content"
-                android:text="&lt;-"
-                android:onClick="prev" />
+                android:background="@null"
+                android:onClick="prev"
+                android:src="@drawable/prev"
+                android:text="&lt;-" />
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Agency"
-                android:textColor="#fff"
                 android:id="@+id/transpo"
-                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="15dp"/>
+                android:text="Agency"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff"
+                android:textSize="25dp" />
 
             <ImageButton
-                android:background="@null"
-                android:src="@drawable/next"
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:onClick="next" />
+                android:background="@null"
+                android:onClick="next"
+                android:src="@drawable/next" />
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/real"
+
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/realestate"
+
+
+                />
+
+
+            <ImageButton
+                android:id="@+id/insurance"
+
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/insurance_agency"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/airsz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Real Estate"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Insurance"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <ImageButton
+
+                android:id="@+id/travel"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
 
 
 
+                android:background="@drawable/buttontravel" />
 
 
-
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="50dp">
-
-            <Button
-                android:background="@drawable/realestate"
-
-                android:id="@+id/real"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginLeft="20dp"
-
-
-                />
-
-
-            <ImageButton
-                android:background="@drawable/insurance_agency"
-
-                android:id="@+id/insurance"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginLeft="50dp"
-
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:gravity="center">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#fff"
-                android:text="Real Estate"
-                android:id="@+id/airsz"
-                android:layout_marginLeft="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Insurance"
-                android:textColor="#fff"
-                android:id="@+id/textView"
-                android:layout_marginLeft="30dp" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="50dp">
-
-            <ImageButton
-                android:id="@+id/travel"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-
-                android:background= "@drawable/buttontravel"
-
-
-                android:layout_gravity="center_horizontal" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="                   Travel"
-                android:textColor="#fff"
                 android:id="@+id/sasa"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Travel"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff" />
 
 
         </LinearLayout>
