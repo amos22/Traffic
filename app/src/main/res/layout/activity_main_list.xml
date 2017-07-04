@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#87E886"
-    tools:context="com.example.alessio.freelancerapp.MainActivity">
+  >
 
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#87E886"
+        android:gravity="center"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <ImageView
@@ -22,7 +23,7 @@
             android:src="@drawable/loaders1"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="140dp"/>
+      />
 
         <TextView
             android:layout_width="wrap_content"
