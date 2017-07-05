@@ -1,125 +1,817 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
-    >
-
-
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Itinerary Generator (Beta)"/>
+    android:background="#FFF0D6">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EE7469"
+        android:textColor="#FFF0D6"
+        android:text="Itinerary Generator (Beta)"/>
 
     <com.kyo.expandablelayout.ExpandableLayout
         android:id="@+id/expandablelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
+        android:background="@null"
         android:orientation="vertical"
         android:padding="12dp">
-
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/a1" />
-
-
+            android:scaleType="fitCenter"
+            android:src="@drawable/box1" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:contentDescription="@null"
-
-
             android:orientation="vertical"
             app:canExpand="true">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-
-                >
-
+                android:layout_marginTop="6dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Info about the package"
+                    android:text="@string/p1_desc"
                     android:textColor="#000"
                     android:textSize="10dp" />
-
-
             </LinearLayout>
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.example.compoundlayout.RadioLayoutGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:orientation="horizontal">
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:elevation="2dp"
+                        app:angle="45"
+                        app:checked="true"
+                        app:colorA="#AAFFA726"
+                        app:colorB="#AAEC407A">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_art" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded"
+                        android:elevation="2dp"
+                        app:colorA="#AA42A5F5"
+                        app:colorB="#AAAB47BC">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_heritage" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded"
+                        android:elevation="2dp"
+                        app:angle="45"
+                        app:colorA="#BBAB47BC"
+                        app:colorB="#BBEF5350">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_qmx" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded"
+                        android:elevation="2dp"
+                        app:angle="70"
+                        app:colorA="#00FFFFFF"
+                        app:colorB="#FF26C6DA">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_cof" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+                </com.example.compoundlayout.RadioLayoutGroup>
+            </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/description_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">  <!--android:id="@+id/description_layout" -->
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:textStyle="bold"
+                android:textColor="#383732"
+                android:text="Art in Island"
+                android:textAppearance="?android:attr/textAppearanceMedium" />    <!-- android:id="@+id/subtitle" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/subdes"
+                android:paddingBottom="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="#383732"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="@string/desc_artin" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-
-                >
-
+                android:weightSum="1">
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Get this package"
-                    android:textColor="#000"
+                    android:text="Get Package"
+                    android:background="@drawable/border"
+                    android:textColor="#383732"
                     android:textSize="10dp" />
             </LinearLayout>
-
-
-
-
         </LinearLayout>
-
-
     </com.kyo.expandablelayout.ExpandableLayout>
 
 
+
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <com.kyo.expandablelayout.ExpandableLayout
         android:id="@+id/expandablelayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical"
         android:padding="12dp">
-
         <ImageView
             android:id="@+id/imageview2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/a1"/>
-
+            android:scaleType="center"
+            android:src="@drawable/box2" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:contentDescription="@null"
-
-
+            android:orientation="vertical"
             app:canExpand="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/p2_desc"
+                    android:textColor="#000"
+                    android:textSize="10dp" />
+            </LinearLayout>
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.example.compoundlayout.RadioLayoutGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:orientation="horizontal">
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:elevation="2dp"
+                        app:angle="45"
+                        app:checked="true"
+                        app:colorA="#AAFFA726"
+                        app:colorB="#AAEC407A">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_balara" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded"
+                        android:elevation="2dp"
+                        app:colorA="#AA42A5F5"
+                        app:colorB="#AAAB47BC">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_uptown" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_7"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded"
+                        android:elevation="2dp"
+                        app:angle="45"
+                        app:colorA="#BBAB47BC"
+                        app:colorB="#BBEF5350">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_stamaria" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                    <com.example.compoundlayout.CircleGradientRadioLayout
+                        android:id="@+id/profile_8"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded"
+                        android:elevation="2dp"
+                        app:angle="70"
+                        app:colorA="#00FFFFFF"
+                        app:colorB="#FF26C6DA">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baguhan_ateneo" />
+                    </com.example.compoundlayout.CircleGradientRadioLayout>
+                </com.example.compoundlayout.RadioLayoutGroup>
+            </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/description_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"> <!--android:id="@+id/description_layout" -->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Info about package"
-                android:textSize="10dp"
-                android:textColor="#000"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Get this"
-                android:textSize="10dp"
-                android:textColor="#000"/>
-
+                android:id="@+id/subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textStyle="bold"
+                android:paddingTop="20dp"
+                android:textColor="#383732"
+                android:text="Balara Filter Park"
+                android:textAppearance="?android:attr/textAppearanceMedium" />  <!-- android:id="@+id/subtitle" -->
+            <TextView
+           android:id="@+id/subdes1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:textStyle="bold"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:textColor="#383732"
+            android:text="@string/desc_balara" />  <!--android:id="@+id/subdes" -->
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:weightSum="1">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Get this package"
+                    android:background="@drawable/border"
+                    android:textColor="#383732"
+                    android:textSize="10dp"
+                    android:layout_weight="1.07" />
+            </LinearLayout>
         </LinearLayout>
-
     </com.kyo.expandablelayout.ExpandableLayout>
+</ScrollView>
 
 
-</LinearLayout>
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.kyo.expandablelayout.ExpandableLayout
+            android:id="@+id/expandablelayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="vertical"
+            android:padding="12dp">
+            <ImageView
+                android:id="@+id/imageview3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@drawable/box3" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@null"
+                android:orientation="vertical"
+                app:canExpand="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/p3_desc"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.example.compoundlayout.RadioLayoutGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:orientation="horizontal">
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_9"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:elevation="2dp"
+                            app:angle="45"
+                            app:checked="true"
+                            app:colorA="#AAFFA726"
+                            app:colorB="#AAEC407A">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_edsa" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_10"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:colorA="#AA42A5F5"
+                            app:colorB="#AAAB47BC">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_maginhawa" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_11"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:angle="45"
+                            app:colorA="#BBAB47BC"
+                            app:colorB="#BBEF5350">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_gesu" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_12"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:angle="70"
+                            app:colorA="#00FFFFFF"
+                            app:colorB="#FF26C6DA">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_up" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_13"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:colorA="#55EF5350"
+                            app:colorB="#88EC407A">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/eastwood_baguhan" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+                    </com.example.compoundlayout.RadioLayoutGroup>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/description_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"> <!--android:id="@+id/description_layout" -->
+                    <TextView
+                        android:id="@+id/subtitle2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:textColor="#383732"
+                        android:text="Edsa Shrine"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />  <!-- android:id="@+id/subtitle" -->
+                    <TextView
+                        android:id="@+id/subdes2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="20dp"
+                        android:textStyle="bold"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#383732"
+                        android:text="@string/desc_edsa" />  <!--android:id="@+id/subdes" -->
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:weightSum="1">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Get Package"
+                        android:background="@drawable/border"
+                        android:textColor="#383732"
+                        android:textSize="10dp"
+                        android:layout_weight="1.07" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.kyo.expandablelayout.ExpandableLayout>
+    </ScrollView>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.kyo.expandablelayout.ExpandableLayout
+            android:id="@+id/expandablelayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="vertical"
+            android:padding="12dp">
+            <ImageView
+                android:id="@+id/imageview4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@drawable/box4" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@null"
+                android:orientation="vertical"
+                app:canExpand="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/p4_desc"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.example.compoundlayout.RadioLayoutGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:orientation="horizontal">
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_14"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:elevation="2dp"
+                            app:angle="45"
+                            app:checked="true"
+                            app:colorA="#AAFFA726"
+                            app:colorB="#AAEC407A">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_bayani" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_15"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:colorA="#AA42A5F5"
+                            app:colorB="#AAAB47BC">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_zoo" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_16"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:angle="45"
+                            app:colorA="#BBAB47BC"
+                            app:colorB="#BBEF5350">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_starita" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_17"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:angle="70"
+                            app:colorA="#00FFFFFF"
+                            app:colorB="#FF26C6DA">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_pagasa" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+                    </com.example.compoundlayout.RadioLayoutGroup>
+                </HorizontalScrollView>
+
+
+                <LinearLayout
+                    android:id="@+id/description_layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"> <!--android:id="@+id/description_layout" -->
+                    <TextView
+                        android:id="@+id/subtitle3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:textColor="#383732"
+                        android:text="Bantayog ng mga Bayani"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />  <!-- android:id="@+id/subtitle" -->
+                    <TextView
+                        android:id="@+id/subdes3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="20dp"
+                        android:textStyle="bold"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#383732"
+                        android:text="@string/desc_bayani" />  <!--android:id="@+id/subdes" -->
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:weightSum="1">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Get Package"
+                        android:background="@drawable/border"
+                        android:textColor="#383732"
+                        android:textSize="10dp"
+                        android:layout_weight="1.07" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.kyo.expandablelayout.ExpandableLayout>
+    </ScrollView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.kyo.expandablelayout.ExpandableLayout
+            android:id="@+id/expandablelayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="vertical"
+            android:padding="12dp">
+            <ImageView
+                android:id="@+id/imageview5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@drawable/box5" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@null"
+                android:orientation="vertical"
+                app:canExpand="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/p5_desc"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.example.compoundlayout.RadioLayoutGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:orientation="horizontal">
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_18"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:elevation="2dp"
+                            app:angle="45"
+                            app:checked="true"
+                            app:colorA="#AAFFA726"
+                            app:colorB="#AAEC407A">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_sining" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_19"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:colorA="#AA42A5F5"
+                            app:colorB="#AAAB47BC">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_fernwood" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_20"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:angle="45"
+                            app:colorA="#BBAB47BC"
+                            app:colorB="#BBEF5350">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_armed" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+
+                        <com.example.compoundlayout.CircleGradientRadioLayout
+                            android:id="@+id/profile_21"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/rounded"
+                            android:elevation="2dp"
+                            app:angle="70"
+                            app:colorA="#00FFFFFF"
+                            app:colorB="#FF26C6DA">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baguhan_mystery" />
+                        </com.example.compoundlayout.CircleGradientRadioLayout>
+                    </com.example.compoundlayout.RadioLayoutGroup>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/description_layout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"> <!--android:id="@+id/description_layout" -->
+                    <TextView
+                        android:id="@+id/subtitle4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:textColor="#383732"
+                        android:text="Sining Kamalig"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />  <!-- android:id="@+id/subtitle" -->
+                    <TextView
+                        android:id="@+id/subdes4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="20dp"
+                        android:textStyle="bold"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:paddingTop="10dp"
+                        android:textColor="#383732"
+                        android:text="@string/desc_sining" />  <!--android:id="@+id/subdes" -->
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:weightSum="1">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Get Package"
+                        android:background="@drawable/border"
+                        android:textColor="#383732"
+                        android:textSize="10dp"
+                        android:layout_weight="1.07" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.kyo.expandablelayout.ExpandableLayout>
+    </ScrollView>
+
+
+
+    </LinearLayout>
