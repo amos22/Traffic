@@ -292,16 +292,16 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
         icons = new BitmapDescriptor[11];
         icons[0] = BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11);
-        icons[1] = BitmapDescriptorFactory.fromResource(R.drawable.a1);
-        icons[2] = BitmapDescriptorFactory.fromResource(R.drawable.a2);
-        icons[3] = BitmapDescriptorFactory.fromResource(R.drawable.a3);
-        icons[4] = BitmapDescriptorFactory.fromResource(R.drawable.a4);
-        icons[5] = BitmapDescriptorFactory.fromResource(R.drawable.a5);
-        icons[6] = BitmapDescriptorFactory.fromResource(R.drawable.a6);
-        icons[7] = BitmapDescriptorFactory.fromResource(R.drawable.a7);
-        icons[8] = BitmapDescriptorFactory.fromResource(R.drawable.a6);
-        icons[9] = BitmapDescriptorFactory.fromResource(R.drawable.a9);
-        icons[10] = BitmapDescriptorFactory.fromResource(R.drawable.a10);
+        icons[1] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[2] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[3] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[4] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[5] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[6] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[7] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[8] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[9] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
+        icons[10] = BitmapDescriptorFactory.fromResource(R.drawable.ccheck);
 
         loadingToasts = new String[10];
         loadingToasts[0] = "1st Marker Loading...";
