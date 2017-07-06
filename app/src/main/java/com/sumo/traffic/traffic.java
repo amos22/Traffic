@@ -112,6 +112,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
     public static LinkedList<String> timestoStay = new LinkedList<String>();
     public static LinkedList<String> mins = new LinkedList<String>();
     public static LinkedList<String> reminders = new LinkedList<String>();
+    public static LinkedList<String> listofturns = new LinkedList<String>();
     static String placeId;
     LinkedList<MarkerOptions> placeMarkers = new LinkedList<MarkerOptions>();
     static BitmapDescriptor[] icons = null;
@@ -181,6 +182,8 @@ static int packs , itc;
     static String place_id = null;
     String placeID = "";
     List<String> placesId = new ArrayList<String>();
+
+
     private final int interval = 2000; // 1 Second
     private Handler handler = new Handler();
     ArrayList<JSONArray> listOfRouteArray = new ArrayList<>();
@@ -909,6 +912,9 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
     }
 
 
+
+
+
     public String altURL() throws UnsupportedEncodingException {
         String params, sensor, main;
         sensor = "&sensor=false&mode=driving&alternatives=true";
@@ -974,6 +980,8 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
             JSONArray waypoints = json.getJSONArray("geocoded_waypoints");
 
+
+
             if (routeArray.length() > 1) {
                 try {
                     altroute.setVisibility(View.VISIBLE);
@@ -997,8 +1005,11 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                 JSONObject routes = routeArray.getJSONObject(0);
                 JSONObject overviewPolylines = routes.getJSONObject("overview_polyline");
                 String encodedString = overviewPolylines.getString("points");
+
                 List<LatLng> list = decodePoly(encodedString);
                 PolylineOptions options = new PolylineOptions().width(10).color(Color.GREEN).geodesic(true);
+
+
                 for (int z = 0; z < list.size(); z++) {
                     LatLng point = list.get(z);
                     options.add(point);
@@ -1012,6 +1023,8 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                 }*/
 
                 JSONArray legsarray = routes.getJSONArray("legs");
+                JSONObject forturn = legsarray.getJSONObject(0);
+                JSONArray turns = forturn.getJSONArray("steps");
 
                 durations = new LinkedList<String>();
                 distances = new LinkedList<String>();
@@ -1036,16 +1049,63 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                         JSONObject legs = legsarray.getJSONObject(i);
                         JSONObject distanceobject = legs.getJSONObject("distance");
                         distances.add(distanceobject.getString("value"));
+                        String sz = distanceobject.getString("text");
+
+
                         JSONObject durationObject = legs.getJSONObject("duration");
                         durations.add(convertSecondsToTimeString(Integer.parseInt(durationObject.getString("value"))));
+
+                        //
+
+                     /*   JSONObject try1 = legs.getJSONObject("html_instructions");
+                        String test = try1.getString("maneuver");
+                        Log.d("try1",""+test);*/
+
 
                         duration = duration + "-- " + durationObject.getString("value");
                         distance = distance + "-- " + distanceobject.getString("value");
                         temp1 = temp1 + " -->" + "pt" + i;
                     }
 
+                    int z = turns.length();
+                    Log.d("try1",""+z);
+
+                    for (int zxxx = 0; zxxx > turns.length() ; zxxx++){
+                        JSONObject t1 = turns.getJSONObject(zxxx);
+                        JSONObject t2 = t1.getJSONObject("html_instructions");
+                        listofturns.add(t2.getString("html_instructions"));
+                    }
+                    int zx = listofturns.size();
+                    Log.d("zxc",""+zx);
 
                 }
+
+
+
+
+
+
+
+
+
+
+
+            /*            JSONObject sss = turns.getJSONObject(i);
+                        JSONObject zxc = sss.getJSONObject("html_instructions");
+                        String sz = zxc.getString("maneuver");
+                        String cc = zxc.toString();
+                        Log.d("try1","try1"+sz);
+                        Log.d("try1","try1"+cc);
+*/
+
+
+
+
+
+
+
+
+
             }
 
 
@@ -4648,15 +4708,8 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                 Log.d("momo2", " : " + result);
                 traffic.drawPath(result);
 
-                try {
-                    //Transform the string into a json object
-                    final JSONObject json = new JSONObject(result);
 
-                    JSONObject waypoints = json.getJSONObject("html_instructions");
-                    Log.d("turnbytun",""+waypoints);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
             }
 
             if (displayDestinationDetails) {
@@ -4672,6 +4725,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
 
             }
+
 
 
 

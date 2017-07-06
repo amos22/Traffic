@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:background="#EE7469"
         android:textColor="#FFF0D6"
-        android:text="Itinerary Generator (Beta)"/>
+
+        android:text="Itinerary Sets"/>
 
     <com.kyo.expandablelayout.ExpandableLayout
         android:id="@+id/expandablelayout"
@@ -19,7 +20,9 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="12dp"
+        app:canExpand="true"
+     >
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="match_parent"
