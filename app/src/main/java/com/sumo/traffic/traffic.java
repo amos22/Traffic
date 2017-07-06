@@ -4645,8 +4645,18 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             super.onPostExecute(result);
             progressDialog.hide();
             if (result != null) {
-                Log.d("momo", " : " + result);
+                Log.d("momo2", " : " + result);
                 traffic.drawPath(result);
+
+                try {
+                    //Transform the string into a json object
+                    final JSONObject json = new JSONObject(result);
+
+                    JSONObject waypoints = json.getJSONObject("html_instructions");
+                    Log.d("turnbytun",""+waypoints);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             if (displayDestinationDetails) {
@@ -4659,7 +4669,12 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
 
 
+
+
             }
+
+
+
 
         }
     }
