@@ -24,6 +24,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -1091,11 +1092,13 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
 try{
+    String get2;
 
         for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
             JSONObject t1 = turns.getJSONObject(zxcz);
 
-            get = t1.getString(ins);
+            get =   Html.fromHtml(t1.getString(ins)).toString();
+
             lister.add(get);
         }
 
