@@ -96,7 +96,7 @@ public class ChoicesOfPackage extends Activity {
                 BounceInterpolator interpolator = new BounceInterpolator(0.2, 20);
                 myAnim.setInterpolator(interpolator);
                 expandableLayout2.startAnimation(myAnim);
-                        expandableLayout2.toggleExpansion();
+                expandableLayout2.toggleExpansion();
                     }
                 });
 

@@ -30,8 +30,13 @@ import android.view.DragEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +66,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.model.DirectionsRoute;
+import com.kyo.expandablelayout.ExpandableLayout;
 import com.sumo.traffic.InfoOfPlaces.InfoOfArt;
 import com.sumo.traffic.InfoOfPlaces.InfoOfAteneo;
 import com.sumo.traffic.InfoOfPlaces.InfoOfBayani;
@@ -131,7 +137,9 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
     boolean clear = false;
     int rn = 0, rl;
 
+    ListView listViewz;
 
+    String ins = "html_instructions";
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
@@ -183,7 +191,7 @@ static int packs , itc;
     String placeID = "";
     List<String> placesId = new ArrayList<String>();
 
-
+    JSONArray turns;
     private final int interval = 2000; // 1 Second
     private Handler handler = new Handler();
     ArrayList<JSONArray> listOfRouteArray = new ArrayList<>();
@@ -193,6 +201,8 @@ static int packs , itc;
 
     final BottomSheetDialogFragment myBottomSheet = MyBottomSheetDialogFragment.newInstance("Modal Bottom Sheet");
 
+    JSONObject t2;
+    String get;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -205,8 +215,8 @@ static int packs , itc;
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-
+        final ExpandableLayout expandableLayout = (ExpandableLayout) this.findViewById(R.id.expandablelayout);
+        listViewz = (ListView) findViewById(R.id.list_item);
 
        Runnable runnable = new Runnable(){
             public void run() {
@@ -378,6 +388,14 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                     Log.e("Testing", String.valueOf(polylines));
                     Log.e("Testing", String.valueOf(listOfRouteArray));
                     Log.e("Testing", String.valueOf(listOfIndicesOfCurrentRoutes));
+
+
+                    final Animation myAnim = AnimationUtils.loadAnimation(traffic.this, R.anim.button_bounce);
+                    // Use bounce interpolator with amplitude 0.2 and frequency 20
+                    BounceInterpolator interpolator = new BounceInterpolator(0.2, 20);
+                    myAnim.setInterpolator(interpolator);
+                    expandableLayout.startAnimation(myAnim);
+                    expandableLayout.toggleExpansion();
 
                 } else if (item.getItemId() == R.id.reset) {
                     //Correction starts here
@@ -966,11 +984,13 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
     }
-
+    String next;
     public void drawPath(String result) {
 //        if (line != null) {
 //            line.remove();
 //        }
+
+        ArrayList<HashMap<String,String>> list2 = new ArrayList<HashMap<String, String>>();
         try {
             //Transform the string into a json object
             final JSONObject json = new JSONObject(result);
@@ -993,7 +1013,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                 rl = routeArray.length();
             }
 
-            if(routeArray.length() > 0){
+            if(routeArray.length() > 0) {
 
                 //add the set of routes to the list of routeArray
                 listOfRouteArray.add(routeArray);
@@ -1024,7 +1044,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
                 JSONArray legsarray = routes.getJSONArray("legs");
                 JSONObject forturn = legsarray.getJSONObject(0);
-                JSONArray turns = forturn.getJSONArray("steps");
+                 turns = forturn.getJSONArray("steps");
 
                 durations = new LinkedList<String>();
                 distances = new LinkedList<String>();
@@ -1042,67 +1062,33 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
                     String temp1 = "";
 
-                    for (int i = 0; i < markers.size()-1; i++) {
-
+                    for (int i = 0; i < markers.size() - 1; i++) {
 
 
                         JSONObject legs = legsarray.getJSONObject(i);
                         JSONObject distanceobject = legs.getJSONObject("distance");
                         distances.add(distanceobject.getString("value"));
-                        String sz = distanceobject.getString("text");
 
 
                         JSONObject durationObject = legs.getJSONObject("duration");
                         durations.add(convertSecondsToTimeString(Integer.parseInt(durationObject.getString("value"))));
 
-                        //
 
-                     /*   JSONObject try1 = legs.getJSONObject("html_instructions");
-                        String test = try1.getString("maneuver");
-                        Log.d("try1",""+test);*/
+                        int zx = listofturns.size();
+                        Log.d("zxc", "" + zx);
 
 
                         duration = duration + "-- " + durationObject.getString("value");
                         distance = distance + "-- " + distanceobject.getString("value");
                         temp1 = temp1 + " -->" + "pt" + i;
+
+
+
+
                     }
 
-                    int z = turns.length();
-                    Log.d("try1",""+z);
-
-                    for (int zxxx = 0; zxxx > turns.length() ; zxxx++){
-                        JSONObject t1 = turns.getJSONObject(zxxx);
-                        JSONObject t2 = t1.getJSONObject("html_instructions");
-                        listofturns.add(t2.getString("html_instructions"));
-                    }
-                    int zx = listofturns.size();
-                    Log.d("zxc",""+zx);
 
                 }
-
-
-
-
-
-
-
-
-
-
-
-            /*            JSONObject sss = turns.getJSONObject(i);
-                        JSONObject zxc = sss.getJSONObject("html_instructions");
-                        String sz = zxc.getString("maneuver");
-                        String cc = zxc.toString();
-                        Log.d("try1","try1"+sz);
-                        Log.d("try1","try1"+cc);
-*/
-
-
-
-
-
-
 
 
 
@@ -1112,6 +1098,34 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+try{
+        for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+            JSONObject t1 = turns.getJSONObject(zxcz);
+
+String get = t1.getString(ins);
+
+
+            Log.d("zxc", "" + t2);
+            Log.d("zxc", "" + get);
+
+            HashMap<String, String> employees = new HashMap<>();
+            employees.put(next, get);
+
+
+            list2.add(employees);
+        }
+
+
+    } catch (JSONException e) {
+        e.printStackTrace();
+    }
+        ListAdapter adapter = new SimpleAdapter(
+                traffic.this, list2, R.layout.turnslist,
+                new String[]{next},
+                new int[]{R.id.turns});
+
+        listViewz.setAdapter(adapter);
+
     }
 
 

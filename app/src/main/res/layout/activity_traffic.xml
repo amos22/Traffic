@@ -6,6 +6,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.sumo.traffic.traffic"
     android:background="#fff"
     >
@@ -129,12 +130,10 @@ android:src="@drawable/ic_action_name"
     </RelativeLayout>
 
 
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_weight="1">
 
             <android.support.design.widget.BottomNavigationView
@@ -146,7 +145,24 @@ android:src="@drawable/ic_action_name"
                 design:menu="@menu/menu_navigation" />
         </LinearLayout>
 
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_weight="1"
+        android:background="#689F38">
+
+
+            <ListView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></ListView>
+
     </LinearLayout>
+
+    </LinearLayout>
+
 
 
 </android.support.design.widget.CoordinatorLayout>
