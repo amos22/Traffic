@@ -21,17 +21,15 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.DragEvent;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -82,12 +80,6 @@ import com.sumo.traffic.InfoOfPlaces.InfoOfQmc;
 import com.sumo.traffic.InfoOfPlaces.InfoOfUp;
 import com.sumo.traffic.InfoOfPlaces.InfoOfVargas;
 import com.sumo.traffic.InfoOfPlaces.InfoOfWatershed;
-import com.sumo.traffic.QcPackage.welcome_qcpackage1;
-import com.sumo.traffic.QcPackage.welcome_qcpackage2;
-import com.sumo.traffic.QcPackage.welcome_qcpackage3;
-import com.sumo.traffic.QcPackage.welcome_qcpackage4;
-import com.sumo.traffic.QcPackage.welcome_qcpackage5;
-import com.sumo.traffic.bestplaces.bestplaces_package1;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -984,13 +976,13 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
     }
-    String next;
+    List<String> lister = new ArrayList<String>();
     public void drawPath(String result) {
 //        if (line != null) {
 //            line.remove();
 //        }
 
-        ArrayList<HashMap<String,String>> list2 = new ArrayList<HashMap<String, String>>();
+
         try {
             //Transform the string into a json object
             final JSONObject json = new JSONObject(result);
@@ -1099,30 +1091,26 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
 try{
+
         for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
             JSONObject t1 = turns.getJSONObject(zxcz);
 
-String get = t1.getString(ins);
-
-
-            Log.d("zxc", "" + t2);
-            Log.d("zxc", "" + get);
-
-            HashMap<String, String> employees = new HashMap<>();
-            employees.put(next, get);
-
-
-            list2.add(employees);
+            get = t1.getString(ins);
+            lister.add(get);
         }
 
 
-    } catch (JSONException e) {
+
+
+
+} catch (JSONException e) {
         e.printStackTrace();
     }
-        ListAdapter adapter = new SimpleAdapter(
-                traffic.this, list2, R.layout.turnslist,
-                new String[]{next},
-                new int[]{R.id.turns});
+
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                        traffic.this, R.layout.turnslist, R.id.turns, lister);
+
 
         listViewz.setAdapter(adapter);
 
