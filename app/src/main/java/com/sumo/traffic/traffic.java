@@ -383,12 +383,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                     Log.e("Testing", String.valueOf(listOfIndicesOfCurrentRoutes));
 
 
-                    final Animation myAnim = AnimationUtils.loadAnimation(traffic.this, R.anim.button_bounce);
-                    // Use bounce interpolator with amplitude 0.2 and frequency 20
-                    BounceInterpolator interpolator = new BounceInterpolator(0.2, 20);
-                    myAnim.setInterpolator(interpolator);
-                    expandableLayout.startAnimation(myAnim);
-                    expandableLayout.toggleExpansion();
+
 
                 } else if (item.getItemId() == R.id.reset) {
                     //Correction starts here
@@ -1093,13 +1088,12 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         }
 try{
     String get2;
-
         for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
             JSONObject t1 = turns.getJSONObject(zxcz);
 
             get =   Html.fromHtml(t1.getString(ins)).toString();
-
-            lister.add(get);
+            get2 = Html.fromHtml(t1.getString(ins)).toString().replace("Destination", "Next destination");
+            lister.add(get2);
         }
 
 
@@ -1209,6 +1203,7 @@ try{
         // incrementRouteIndexOfNextOrderPolyline() function. Take a look at
         // incrementRouteIndexOfNextOrderPolyline() and look at this example. example: if we have
         // 138 the next count is 139.
+        lister.clear();
         if(!listOfRouteArray.isEmpty()){
             if((listOfIndicesOfCurrentRoutes.get(0) + 1) < listOfRouteArray.get(0).length()){
 
@@ -1276,6 +1271,9 @@ try{
 
         try {
             JSONObject routes = listOfRouteArray.get(indexOfRouteToAlternate).getJSONObject(indexOfNewPolyline);
+            JSONArray legsarray = routes.getJSONArray("legs");
+            JSONObject forturn = legsarray.getJSONObject(0);
+            turns = forturn.getJSONArray("steps");
             JSONObject overviewPolylines = routes.getJSONObject("overview_polyline");
             String encodedString = overviewPolylines.getString("points");
             List<LatLng> list = decodePoly(encodedString);
@@ -1283,7 +1281,17 @@ try{
             for (int z = 0; z < list.size(); z++) {
                 LatLng point = list.get(z);
                 options.add(point);
+
             }
+
+            for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+                JSONObject t1 = turns.getJSONObject(zxcz);
+                get =   Html.fromHtml(t1.getString(ins)).toString();
+                lister.add(get);
+            }
+
+
+
             //Correction starts here
 //            line = mMap.addPolyline(options);
             polylines.get(indexOfRouteToAlternate).remove();
@@ -1296,6 +1304,11 @@ try{
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                traffic.this, R.layout.turnslist, R.id.turns, lister);
+
+
+        listViewz.setAdapter(adapter);
     }
 
 
