@@ -196,6 +196,9 @@ static int packs , itc;
 
     JSONObject t2;
     String get;
+
+
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1104,16 +1107,17 @@ try{
             lon = Html.fromHtml(startUser.getString("lng")).toString();
             Log.d("ustart",""+lat);
             Log.d("ustart",""+lon);
-
+            latz.add(lat);
+            longz.add(lon);
             JSONObject EndUser = t1.getJSONObject("end_location");
             elat = Html.fromHtml(EndUser.getString("lat")).toString();
             elon = Html.fromHtml(EndUser.getString("lng")).toString();
             Log.d("endstart",""+elat);
             Log.d("endstart",""+elon);
+            elatz.add(elat);
+            elongz.add(elon);
 
-
-
-            get =   Html.fromHtml(t1.getString(ins)).toString();
+            get =   Html.fromHtml(t1.getString(ins)).toString().replace("Head on","Current location : ");
             lister.add(get);
 
         }
@@ -1127,7 +1131,7 @@ try{
     }
 
         
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+           adapter = new ArrayAdapter<String>(
                         traffic.this, R.layout.turnslist, R.id.turns, lister);
 
 
@@ -4468,17 +4472,16 @@ try{
         int request = requestCode;
         int result = resultCode;
 
-
-
-
-
+        mMap.clear();
+        lister.clear();
         //add markers back
         int current = 0;
-//        for (MarkerOptions options : mList) {
-//            Marker m = mMap.addMarker(options);
-//            //reset icons
-//            m.setIcon(icons[current++]);
-//        }
+     for (MarkerOptions options : mList) {
+           Marker m = mMap.addMarker(options);
+           //reset icons
+           m.setIcon(icons[current++]);
+         adapter.notifyDataSetChanged();
+       }
 
         //add places back
         for (MarkerOptions place : placeMarkers) {
