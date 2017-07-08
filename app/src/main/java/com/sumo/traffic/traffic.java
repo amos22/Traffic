@@ -81,6 +81,7 @@ import com.sumo.traffic.InfoOfPlaces.InfoOfQmc;
 import com.sumo.traffic.InfoOfPlaces.InfoOfUp;
 import com.sumo.traffic.InfoOfPlaces.InfoOfVargas;
 import com.sumo.traffic.InfoOfPlaces.InfoOfWatershed;
+import com.sumo.traffic.Services.LocationService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -168,11 +169,11 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
     static int qp1, qp2, qp3, qp4, qp5;
 
-static int packs , itc;
+    static int packs , itc;
 
     static Button nav;
 
-   com.github.clans.fab.FloatingActionButton fab1,fab2,fab3;
+    com.github.clans.fab.FloatingActionButton fab1,fab2,fab3;
     com.github.clans.fab.FloatingActionMenu menured;
 
     static int checklist = 0;
@@ -209,6 +210,7 @@ static int packs , itc;
     List<Double> longz = new ArrayList<Double>();
     List<Double> elatz = new ArrayList<Double>();
     List<Double> elongz = new ArrayList<Double>();
+    int dc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -224,9 +226,9 @@ static int packs , itc;
         final ExpandableLayout expandableLayout = (ExpandableLayout) this.findViewById(R.id.expandablelayout);
         listViewz = (ListView) findViewById(R.id.list_item);
 
-       Runnable runnable = new Runnable(){
+        Runnable runnable = new Runnable(){
             public void run() {
-             selected();
+                selected();
             }
         };
 
@@ -234,7 +236,7 @@ static int packs , itc;
         handler.postDelayed(runnable, interval);
 
 
-fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
+        fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
         fab2 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab2);
 
@@ -347,6 +349,8 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                         Intent z = new Intent(traffic.this, DestinationActivity.class);
                         z.putExtra("currentMarker", markers.size());
                         startActivityForResult(z, 99);
+
+
                     }
 
                /*     String url = null;
@@ -395,7 +399,14 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                     Log.e("Testing", String.valueOf(listOfRouteArray));
                     Log.e("Testing", String.valueOf(listOfIndicesOfCurrentRoutes));
 
-
+                    if (mGoogleApiClient.isConnected())
+                    {
+                    mGoogleApiClient.disconnect();
+                    }
+                    else if (!mGoogleApiClient.isConnected())
+                    {
+                        mGoogleApiClient.connect();
+                    }
 
 
                 } else if (item.getItemId() == R.id.reset) {
@@ -611,6 +622,10 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
         mMap = googleMap;
 
+
+
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -625,6 +640,17 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                 }
             }
         }, 1000);
+
+
+
+
+        t.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+                Log.d("wtftangna",""+latitude+"     "+longitude);
+            }
+        }, 0, 5000);
 
 
         t.scheduleAtFixedRate(new TimerTask() {
@@ -669,12 +695,15 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
-
+                mMap.setMyLocationEnabled(true);
             }
-        } else {
-            buildGoogleApiClient();
-
         }
+        else {
+            buildGoogleApiClient();
+            mMap.setMyLocationEnabled(true);
+        }
+
+
 
 
 
@@ -724,6 +753,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         // Log.d("meme",myLocation.toString());
         LatLng myLatLng = new LatLng(myLocation.getLatitude(),
                 myLocation.getLongitude());
+
         // Log.d("meme",myLatLng.toString());
 
         points.add(myLatLng);
@@ -1047,7 +1077,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
 
                 JSONArray legsarray = routes.getJSONArray("legs");
                 JSONObject forturn = legsarray.getJSONObject(0);
-                 turns = forturn.getJSONArray("steps");
+                turns = forturn.getJSONArray("steps");
 
                 durations = new LinkedList<String>();
                 distances = new LinkedList<String>();
@@ -1101,44 +1131,44 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-try{
-    Double lat;
-    Double lon;
-    Double elat;
-    Double elon;
-        for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
-            JSONObject t1 = turns.getJSONObject(zxcz);
-            JSONObject startUser = t1.getJSONObject("start_location");
-            lat = Double.valueOf(Html.fromHtml(startUser.getString("lat")).toString());
-            lon = Double.valueOf(Html.fromHtml(startUser.getString("lng")).toString());
-            Log.d("ustart",""+lat);
-            Log.d("ustart",""+lon);
-            latz.add(lat);
-            longz.add(lon);
-            JSONObject EndUser = t1.getJSONObject("end_location");
-            elat = Double.valueOf(Html.fromHtml(EndUser.getString("lat")).toString());
-            elon = Double.valueOf(Html.fromHtml(EndUser.getString("lng")).toString());
-            Log.d("endstart",""+elat);
-            Log.d("endstart",""+elon);
-            elatz.add(elat);
-            elongz.add(elon);
+        try{
+            Double lat;
+            Double lon;
+            Double elat;
+            Double elon;
+            for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+                JSONObject t1 = turns.getJSONObject(zxcz);
+                JSONObject startUser = t1.getJSONObject("start_location");
+                lat = Double.valueOf(Html.fromHtml(startUser.getString("lat")).toString());
+                lon = Double.valueOf(Html.fromHtml(startUser.getString("lng")).toString());
+                Log.d("ustart",""+lat);
+                Log.d("ustart",""+lon);
+                latz.add(lat);
+                longz.add(lon);
+                JSONObject EndUser = t1.getJSONObject("end_location");
+                elat = Double.valueOf(Html.fromHtml(EndUser.getString("lat")).toString());
+                elon = Double.valueOf(Html.fromHtml(EndUser.getString("lng")).toString());
+                Log.d("endstart",""+elat);
+                Log.d("endstart",""+elon);
+                elatz.add(elat);
+                elongz.add(elon);
 
-            get =   Html.fromHtml(t1.getString(ins)).toString().replace("Head on","Current location : ");
-            lister.add(get);
+                get =   Html.fromHtml(t1.getString(ins)).toString().replace("Head on","Current location : ");
+                lister.add(get);
 
+            }
+
+
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
 
-
-
-
-} catch (JSONException e) {
-        e.printStackTrace();
-    }
-
-        
-           adapter = new ArrayAdapter<String>(
-                        traffic.this, R.layout.turnslist, R.id.turns, lister);
+        adapter = new ArrayAdapter<String>(
+                traffic.this, R.layout.turnslist, R.id.turns, lister);
 
 
         listViewz.setAdapter(adapter);
@@ -1618,51 +1648,51 @@ try{
 
     public void destinationclear(View view) {
 
-            mMap.clear();
-            points.clear();
-            markers.clear();
-            mList.clear();
-            distances.clear();
-            durations.clear();
-            reminders.clear();
-            timestoStay.clear();
-            mins.clear();
+        mMap.clear();
+        points.clear();
+        markers.clear();
+        mList.clear();
+        distances.clear();
+        durations.clear();
+        reminders.clear();
+        timestoStay.clear();
+        mins.clear();
 
-            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            Criteria criteria = new Criteria();
-            String provider = locationManager.getBestProvider(criteria, true);
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            Location myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            MarkerOptions markerOptions = new MarkerOptions()
-                    .position(latLng)
-                    .title("My Location")
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11))
-                    .anchor(0.5f, 1);
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        String provider = locationManager.getBestProvider(criteria, true);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Location myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(latLng)
+                .title("My Location")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11))
+                .anchor(0.5f, 1);
 
-            Marker m = mMap.addMarker(markerOptions);
+        Marker m = mMap.addMarker(markerOptions);
 
-            markers.add(m);
-            //EXTRA CODES
-            mList.add(markerOptions);
+        markers.add(m);
+        //EXTRA CODES
+        mList.add(markerOptions);
 
 /*    durations.add(new String("0"));
     distances.add(new String("0"));*/
 
-            // Log.d("meme",myLocation.toString());
-            LatLng myLatLng = new LatLng(myLocation.getLatitude(),
-                    myLocation.getLongitude());
-            // Log.d("meme",myLatLng.toString());
+        // Log.d("meme",myLocation.toString());
+        LatLng myLatLng = new LatLng(myLocation.getLatitude(),
+                myLocation.getLongitude());
+        // Log.d("meme",myLatLng.toString());
 
-            points.add(myLatLng);
+        points.add(myLatLng);
 
 
 
@@ -1777,1212 +1807,6 @@ try{
 
     }
 
-    public void themansion() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 16.4124;
-        double we = 120.6215;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("The Mansion")
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String(""));
-
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-
-    public void minesview() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 16.4196;
-        double we = 120.6279;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Mines  View")
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void grotto() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 16.4096;
-        double we = 120.5806;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-
-    public void cathedral() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 16.4129;
-        double we = 120.5985;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void burnham() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 16.4095;
-        double we = 120.5948;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void museo() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5791;
-        double we = 120.9771;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void manilaoceanpark() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5793;
-        double we = 120.9724;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-
-    public void coconut() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5552;
-        double we = 120.9801;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void national() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5869;
-        double we = 120.9812;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void starcity() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5560;
-        double we = 120.9858;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void sanagustin() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5886;
-        double we = 120.9749;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void pacopark() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5810;
-        double we = 120.9884;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void cultural() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5583;
-        double we = 120.9857;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void NationalMuseum() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5869;
-        double we = 120.9812;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-
-    public void manilazoo() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5651;
-        double we = 120.9885;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void cemetery() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.6325;
-        double we = 120.9847;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-
-    public void arch() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5971459;
-        double we = 120.9764795;
-
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void china() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.6012;
-        double we = 120.9750;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void bahay() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5909;
-        double we = 120.9750;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Destination " + mList.size())
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void mystery() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.5626;
-        double we = 121.0225;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Mystery Room Quezon City")
-                .snippet("placeId:" + "ChIJ3bGhD_i3lzMROoN7udn8v30")
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void armed() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.6110;
-        double we = 121.0619;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Armed Forces of the Philippines Museum")
-                .snippet("placeId:" + "ChIJK725zei3lzMRdjehQsQsUKw")
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String("0"));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-    public void fernwood() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.6690;
-        double we = 121.0481;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Fernwood Gardens")
-                .snippet("placeId:" + "ChIJ5222gju3lzMRTgrD9gxfVko")
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String(""));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
-
-
-    public void sining() {
-
-
-        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();
-
-        double wa = 14.6192;
-        double we = 121.0564;
-
-        LatLng was = new LatLng(wa, we);
-
-
-        MarkerOptions markerOptions = new MarkerOptions()
-                .position(was)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.placesz))
-                .title("Sining Kamalig")
-                .snippet("placeId:" + "ChIJ3xrTH8C3lzMReJnE6215ffA")
-                .anchor(0.5f, 1);
-
-
-        points.add(was);
-
-
-        markers.add(mMap.addMarker(markerOptions));
-
-        //EXTRA CODES
-        mList.add(markerOptions);
-
-        distances.add(new String("0"));
-        durations.add(new String("0"));
-        reminders.add(new String(""));
-        timestoStay.add(new String(""));
-        mins.add(new String(""));
-
-        String url = null;
-        try {
-            url = makeURL3();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-/*
-
-        pointview.setVisibility(View.VISIBLE);
-        durationview.setVisibility(View.VISIBLE);
-        distanceview.setVisibility(View.VISIBLE);
-*/
-
-        connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
-        downloadTask2.execute();
-
-
-    }
 
 
     public void watershed() {
@@ -4482,12 +3306,12 @@ try{
         lister.clear();
         //add markers back
         int current = 0;
-     for (MarkerOptions options : mList) {
-           Marker m = mMap.addMarker(options);
-           //reset icons
-           m.setIcon(icons[current++]);
-         adapter.notifyDataSetChanged();
-       }
+        for (MarkerOptions options : mList) {
+            Marker m = mMap.addMarker(options);
+            //reset icons
+            m.setIcon(icons[current++]);
+            adapter.notifyDataSetChanged();
+        }
 
         //add places back
         for (MarkerOptions place : placeMarkers) {
@@ -4580,14 +3404,7 @@ try{
             mCurrLocationMarker.remove();
         }
 
-        mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-
-
-
-
-
-
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
         //Place current location marker
 
@@ -4599,17 +3416,34 @@ try{
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11)));
         Toast.makeText(traffic.this, "Your Current Location", Toast.LENGTH_LONG).show();
 
-        Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f", latitude, longitude));
+        Log.d("onLocationChanged", String.format("latitude:%.9f longitude:%.9f", latitude, longitude));
+
+
+
+                if (mGoogleApiClient == null) {
+                    LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+                    Log.d("onLocationChanged", "Removing Location Updates");
+                }
+
+
 
         //stop location updates
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-            Log.d("onLocationChanged", "Removing Location Updates");
-        }
+
         Log.d("onLocationChanged", "Exit");
 
 
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        //stop location updates when Activity is no longer active
+        if (mGoogleApiClient != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+        }
+    }
+
 
 
 
