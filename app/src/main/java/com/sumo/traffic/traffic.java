@@ -199,6 +199,16 @@ static int packs , itc;
 
 
     ArrayAdapter<String> adapter;
+
+
+    List<String> lister = new ArrayList<String>();
+
+
+
+    List<Double> latz = new ArrayList<Double>();
+    List<Double> longz = new ArrayList<Double>();
+    List<Double> elatz = new ArrayList<Double>();
+    List<Double> elongz = new ArrayList<Double>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -977,11 +987,7 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
     }
-    List<String> lister = new ArrayList<String>();
-    List<String> latz = new ArrayList<String>();
-    List<String> longz = new ArrayList<String>();
-    List<String> elatz = new ArrayList<String>();
-    List<String> elongz = new ArrayList<String>();
+
     public void drawPath(String result) {
 //        if (line != null) {
 //            line.remove();
@@ -1096,22 +1102,22 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
 try{
-    String lat;
-    String lon;
-    String elat;
-    String elon;
+    Double lat;
+    Double lon;
+    Double elat;
+    Double elon;
         for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
             JSONObject t1 = turns.getJSONObject(zxcz);
             JSONObject startUser = t1.getJSONObject("start_location");
-            lat = Html.fromHtml(startUser.getString("lat")).toString();
-            lon = Html.fromHtml(startUser.getString("lng")).toString();
+            lat = Double.valueOf(Html.fromHtml(startUser.getString("lat")).toString());
+            lon = Double.valueOf(Html.fromHtml(startUser.getString("lng")).toString());
             Log.d("ustart",""+lat);
             Log.d("ustart",""+lon);
             latz.add(lat);
             longz.add(lon);
             JSONObject EndUser = t1.getJSONObject("end_location");
-            elat = Html.fromHtml(EndUser.getString("lat")).toString();
-            elon = Html.fromHtml(EndUser.getString("lng")).toString();
+            elat = Double.valueOf(Html.fromHtml(EndUser.getString("lat")).toString());
+            elon = Double.valueOf(Html.fromHtml(EndUser.getString("lng")).toString());
             Log.d("endstart",""+elat);
             Log.d("endstart",""+elon);
             elatz.add(elat);
@@ -4575,6 +4581,10 @@ try{
         }
 
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
+
+
+
+
 
 
 
