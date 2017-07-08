@@ -748,7 +748,9 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         loc2.setLongitude(EndP.longitude);
 
         float distanceInMeters = loc1.distanceTo(loc2);
+        Log.d("wtf123",""+distanceInMeters);
         return distanceInMeters;
+
     }
 
 
@@ -973,6 +975,10 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
         }
     }
     List<String> lister = new ArrayList<String>();
+    List<String> latz = new ArrayList<String>();
+    List<String> longz = new ArrayList<String>();
+    List<String> elatz = new ArrayList<String>();
+    List<String> elongz = new ArrayList<String>();
     public void drawPath(String result) {
 //        if (line != null) {
 //            line.remove();
@@ -1087,13 +1093,29 @@ fab1 = (  com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
             e.printStackTrace();
         }
 try{
-    String get2;
+    String lat;
+    String lon;
+    String elat;
+    String elon;
         for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
             JSONObject t1 = turns.getJSONObject(zxcz);
+            JSONObject startUser = t1.getJSONObject("start_location");
+            lat = Html.fromHtml(startUser.getString("lat")).toString();
+            lon = Html.fromHtml(startUser.getString("lng")).toString();
+            Log.d("ustart",""+lat);
+            Log.d("ustart",""+lon);
+
+            JSONObject EndUser = t1.getJSONObject("end_location");
+            elat = Html.fromHtml(EndUser.getString("lat")).toString();
+            elon = Html.fromHtml(EndUser.getString("lng")).toString();
+            Log.d("endstart",""+elat);
+            Log.d("endstart",""+elon);
+
+
 
             get =   Html.fromHtml(t1.getString(ins)).toString();
-            get2 = Html.fromHtml(t1.getString(ins)).toString().replace("Destination", "Next destination");
-            lister.add(get2);
+            lister.add(get);
+
         }
 
 
@@ -4550,6 +4572,8 @@ try{
         }
 
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
+
+
 
 
         //Place current location marker
