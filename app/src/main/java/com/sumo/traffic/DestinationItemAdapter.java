@@ -125,4 +125,6 @@ public class DestinationItemAdapter extends BaseAdapter implements ListAdapter {
 
         return view;
     }
+
+
 }
