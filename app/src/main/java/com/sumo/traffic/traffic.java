@@ -212,6 +212,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
     List<Double> elongz = new ArrayList<Double>();
     double distanz;
     int dc;
+    int ready1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -353,7 +354,6 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
                     }
 
-                    replot();
 
 
                /*     String url = null;
@@ -566,7 +566,6 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             mGoogleApiClient.connect();
 
         }
-        //replot();
 
 
 
@@ -656,7 +655,14 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
 
+        t.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
 
+
+
+            }
+        }, 0, 10000);
 
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -718,6 +724,8 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
     public void replot() {
 
         //add markers back
+        mMap.clear();
+        lister.clear();
         int current = 0;
         for(
                 MarkerOptions options :mList)
@@ -752,7 +760,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
         try {
 
-            connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, false);
+            connectAsyncTask3 downloadTask2 = new connectAsyncTask3(url, this, false);
             downloadTask2.execute();
 
 
@@ -760,25 +768,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             e.printStackTrace();
         }
 
-
-        Marker mc = markers.get(1);
-        double s1 =  mc.getPosition().latitude;
-        double s2 = mc.getPosition().longitude;
-        Location mark = new Location("");
-        mark.setLatitude(s1);
-        mark.setLongitude(s2);
-
-        Location loc1 = new Location("");
-        loc1.setLatitude(latitude);
-        loc1.setLongitude(longitude);
-        double distanz = loc1.distanceTo(mark);
-
-      //  if (distanz < 5000)
-     //   {
-        mList.remove(1);
-
-
-      //  }
+        //  }
 
 
     }
@@ -1042,17 +1032,19 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
     public static String makeURL3() throws UnsupportedEncodingException {
-        String params, waypoints, sensor, main;
+        String params,  waypoints, sensor, main;
+        int i;
         if (points.size() > 2) {
             waypoints = "waypoints=optimize:true";
-            for (int i = 1; i < points.size() - 1; i++) {
+            for ( i = 1; i < points.size() - 1; i++) {
                 String Temp = URLEncoder.encode("|", "UTF-8") + points.get(i).latitude + "," + points.get(i).longitude;
                 waypoints = waypoints.concat(Temp);
             }
             sensor = "&alternatives=true&sensor=false&mode=driving";
-            main = "origin=" + Double.toString(points.get(0).latitude) + "," + Double.toString(points.get(0).longitude) + "&destination=" + Double.toString(points.get(points.size() - 1).latitude) + "," + Double.toString(points.get(points.size() - 1).longitude);
+            main = "origin=" + Double.toString(points.get(i).latitude) + "," + Double.toString(points.get(i).longitude) + "&destination=" + Double.toString(points.get(points.size() - 1).latitude) + "," + Double.toString(points.get(points.size() - 1).longitude);
             params = main + "&" + waypoints + sensor;
-        } else {
+        }
+         else {
             sensor = "&sensor=false&mode=driving&alternatives=true";
             main = "origin=" + Double.toString(latLng.latitude) + "," + Double.toString(latLng.longitude) + "&destination=" + Double.toString(points.get(points.size() - 1).latitude) + "," + Double.toString(points.get(points.size() - 1).longitude);
             params = main + sensor;
@@ -1216,7 +1208,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
                 elatz.add(elat);
                 elongz.add(elon);
 
-                get =   Html.fromHtml(t1.getString(ins)).toString().replace("Head on","Current location : ");
+                get =   Html.fromHtml(t1.getString(ins)).toString();
                 lister.add(get);
 
             }
@@ -3367,6 +3359,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
         mMap.clear();
         lister.clear();
+
         //add markers back
         int current = 0;
         for (MarkerOptions options : mList) {
@@ -3392,7 +3385,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
         try {
 
-            connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, false);
+            connectAsyncTask3 downloadTask2 = new connectAsyncTask3(url, this, false);
             downloadTask2.execute();
 
 
@@ -3472,10 +3465,10 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         //Place current location marker
 
         //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+    //    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+     //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
-/*        float mapZoom = mMap.getCameraPosition().zoom >= 30 ? mMap.getCameraPosition().zoom : 30;
+        float mapZoom = mMap.getCameraPosition().zoom >= 30 ? mMap.getCameraPosition().zoom : 30;
         CameraPosition cameraPosition =
                 new CameraPosition.Builder()
                         .target(latLng)
@@ -3485,8 +3478,14 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
                         .build();
 
         mMap.animateCamera(
-                CameraUpdateFactory.newCameraPosition(cameraPosition));*/
+                CameraUpdateFactory.newCameraPosition(cameraPosition));
 
+        if(mList.size() > 1) {
+            if(checklist==1) {
+                replot();
+                adapter.notifyDataSetChanged();
+            }
+        }
         mCurrLocationMarker = mMap.addMarker(new MarkerOptions()
                 .position(latLng)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11)));
@@ -3505,7 +3504,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
                 {
                     try {
 
-                        replot();
+
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -3535,7 +3534,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 /*        Toast.makeText(getApplicationContext(), loadingToasts[mList.size() - 1], Toast.LENGTH_LONG).show();*/
 
 
-        checklist = 1;
+
         MarkerOptions markerOptions = new MarkerOptions()
                 .position(latLng)
                 //Small correction here, not too important
@@ -3576,6 +3575,8 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
         connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, true);
         downloadTask2.execute();
+
+
     }
 
     @Override
@@ -3660,6 +3661,8 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         }
     }
 
+
+
     public class connectAsyncTask2 extends AsyncTask<Void, Void, String> {
         private ProgressDialog progressDialog;
         private traffic traffic;
@@ -3698,6 +3701,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             progressDialog.hide();
+            checklist = 1;
             if (result != null) {
                 Log.d("momo2", " : " + result);
                 traffic.drawPath(result);
@@ -4143,4 +4147,3 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
 }
-
