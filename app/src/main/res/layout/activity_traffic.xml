@@ -152,7 +152,6 @@ android:src="@drawable/ic_action_name"
         android:layout_weight="1"
         android:background="#689F38">
 
-
             <ListView
                 android:id="@+id/list_item"
                 android:layout_width="match_parent"

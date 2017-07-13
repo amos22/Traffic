@@ -2,32 +2,97 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
-    android:id="@+id/linearLayoutStaff" android:layout_width="wrap_content"
+    android:id="@+id/linearLayoutStaff" android:layout_width="match_parent"
     android:layout_height="wrap_content" android:shadowColor="#000"
     android:shadowDx="0" android:shadowDy="30"
-    android:shadowRadius="100" android:orientation="vertical"> <android.support.v7.widget.CardView
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    app:cardBackgroundColor="#fff" android:shadowColor="#000" android:shadowDx="0"
-    app:cardCornerRadius="20dp" android:layout_centerHorizontal="true" android:innerRadius="0dp" android:shape="ring"
-    android:thicknessRatio="1.9" android:shadowDy="50" android:shadowRadius="120" app:cardElevation="10dp" app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true" card_view:cardBackgroundColor="#ffffff" card_view:cardCornerRadius="8dp" card_view:cardPreventCornerOverlap="false">
-    <RelativeLayout android:id="@+id/border"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_margin="0dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical">
+    android:shadowRadius="100" android:orientation="horizontal"
+
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:innerRadius="0dp"
+        android:shadowColor="#000"
+        android:shadowDx="0"
+        android:shadowDy="50"
+        android:shadowRadius="120"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        card_view:cardBackgroundColor="#ffffff"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardPreventCornerOverlap="false">
+
+
         <LinearLayout
+            android:id="@+id/border"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <TextView android:id="@+id/turns"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lastname"
-                android:textAlignment="center"
-                android:textColor="#994495"
-                android:textSize="16dp" />
-        </LinearLayout> </RelativeLayout>
-</android.support.v7.widget.CardView>
+            android:layout_height="80dp"
+            android:layout_margin="0dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight=".3"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/turnview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/distancex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lastname"
+
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:textColor="#994495"
+                        android:textSize="12dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/turns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lastname"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#994495"
+                        android:textSize="16dp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

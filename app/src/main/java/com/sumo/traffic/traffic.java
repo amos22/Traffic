@@ -168,7 +168,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
     static int qp1, qp2, qp3, qp4, qp5;
-
+int driving = 0;
     static int packs , itc;
 
     static Button nav;
@@ -197,6 +197,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
     JSONObject t2;
     String get;
+    Double layo;
 
 
     ArrayAdapter<String> adapter;
@@ -548,6 +549,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
             mGoogleApiClient.disconnect();
+            driving = 0;
 
         }
         else if (!mGoogleApiClient.isConnected())
@@ -565,6 +567,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
                     CameraUpdateFactory.newCameraPosition(cameraPosition));
             mGoogleApiClient.connect();
 
+driving = 1;
         }
 
 
@@ -805,6 +808,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         MarkerOptions markerOptions = new MarkerOptions()
                 .position(latLng)
                 .title("My Location")
+
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11))
                 .anchor(0.5f, 1);
 
@@ -1210,7 +1214,9 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
                 get =   Html.fromHtml(t1.getString(ins)).toString();
                 lister.add(get);
-
+      /*          layo = Double.valueOf(Html.fromHtml(t1.getString("value")).toString());
+          lister.add(String.valueOf(layo));
+                Log.d("anoha",""+layo);*/
             }
 
 
@@ -1222,11 +1228,15 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         }
 
 
+
         adapter = new ArrayAdapter<String>(
                 traffic.this, R.layout.turnslist, R.id.turns, lister);
 
-
+   /*     ArrayAdapter adapter2 = new ArrayAdapter<String>(
+                traffic.this, R.layout.turnslist, R.id.distancex, lister);
+*/
         listViewz.setAdapter(adapter);
+/*        listViewz.setAdapter(adapter2);*/
 
     }
 
@@ -3450,9 +3460,11 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
     @Override
     public void onLocationChanged(Location location) {
+        int bearing = 0;
         latitude = location.getLatitude();
         longitude = location.getLongitude();
         latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
         Log.d("onLocationChanged", "entered");
 
         mLastLocation = location;
@@ -3460,25 +3472,37 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             mCurrLocationMarker.remove();
         }
 
-        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
-        //Place current location marker
 
-        //move map camera
-    //    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-     //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
-        float mapZoom = mMap.getCameraPosition().zoom >= 30 ? mMap.getCameraPosition().zoom : 30;
-        CameraPosition cameraPosition =
-                new CameraPosition.Builder()
-                        .target(latLng)
-                        .bearing(20)
-                        .tilt(90)
-                        .zoom(mapZoom)
-                        .build();
+/*
 
-        mMap.animateCamera(
-                CameraUpdateFactory.newCameraPosition(cameraPosition));
+if(driving == 1) {
+    float mapZoom = mMap.getCameraPosition().zoom >= 30 ? mMap.getCameraPosition().zoom : 30;
+    CameraPosition cameraPosition =
+            new CameraPosition.Builder()
+                    .target(latLng)
+                    .bearing(20)
+
+                    .tilt(90)
+                    .zoom(mapZoom)
+                    .build();
+
+    mMap.animateCamera(
+            CameraUpdateFactory.newCameraPosition(cameraPosition));
+}
+else
+{
+    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+    mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+}
+
+*/
+
+
+
 
         if(mList.size() > 1) {
             if(checklist==1) {
@@ -3488,6 +3512,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         }
         mCurrLocationMarker = mMap.addMarker(new MarkerOptions()
                 .position(latLng)
+                .flat(true)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11)));
         //Toast.makeText(traffic.this, "Your Current Location", Toast.LENGTH_LONG).show();
 
@@ -3499,19 +3524,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             Log.d("onLocationChanged", "Removing Location Updates");
         }
-/*
-                if(mList.size() < 1)
-                {
-                    try {
 
-
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                Log.d("111",""+mList.size());*/
         Log.d("onLocationChanged", "Exit");
     }
 
