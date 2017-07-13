@@ -24,6 +24,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
@@ -203,8 +205,9 @@ int driving = 0;
     ArrayAdapter<String> adapter;
 
 
-    List<String> lister = new ArrayList<String>();
-
+    private RecyclerView recyclerViewStaff;
+    private RecyclerView.Adapter adapterStaff;
+    private List<TurnItem> InitialListStaffs;
 
 
     List<Double> latz = new ArrayList<Double>();
@@ -227,7 +230,24 @@ int driving = 0;
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         final ExpandableLayout expandableLayout = (ExpandableLayout) this.findViewById(R.id.expandablelayout);
-        listViewz = (ListView) findViewById(R.id.list_item);
+
+
+        recyclerViewStaff = (RecyclerView) findViewById(R.id.recyclerViewStaff);
+
+        recyclerViewStaff.setHasFixedSize(true);
+        recyclerViewStaff.setLayoutManager(new LinearLayoutManager(this));
+
+        InitialListStaffs = new ArrayList<>();
+
+
+
+
+
+
+
+
+
+
 
         Runnable runnable = new Runnable(){
             public void run() {
@@ -728,7 +748,7 @@ driving = 1;
 
         //add markers back
         mMap.clear();
-        lister.clear();
+       // lister.clear();
         int current = 0;
         for(
                 MarkerOptions options :mList)
@@ -1196,7 +1216,10 @@ driving = 1;
             Double elat;
             Double elon;
             for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+                TurnItem turnk = new TurnItem();
                 JSONObject t1 = turns.getJSONObject(zxcz);
+                JSONObject layo = t1.getJSONObject("distance");
+                JSONObject oras = t1.getJSONObject("duration");
                 JSONObject startUser = t1.getJSONObject("start_location");
                 lat = Double.valueOf(Html.fromHtml(startUser.getString("lat")).toString());
                 lon = Double.valueOf(Html.fromHtml(startUser.getString("lng")).toString());
@@ -1211,12 +1234,19 @@ driving = 1;
                 Log.d("endstart",""+elon);
                 elatz.add(elat);
                 elongz.add(elon);
+                 turnk.setturn(Html.fromHtml(t1.getString(ins)).toString());
+           turnk.setdis(Html.fromHtml(layo.getString("text")).toString());
+                turnk.setdur(Html.fromHtml(oras.getString("text")).toString());
 
-                get =   Html.fromHtml(t1.getString(ins)).toString();
-                lister.add(get);
-      /*          layo = Double.valueOf(Html.fromHtml(t1.getString("value")).toString());
-          lister.add(String.valueOf(layo));
-                Log.d("anoha",""+layo);*/
+
+
+
+
+
+
+
+
+                InitialListStaffs.add(turnk);
             }
 
 
@@ -1227,17 +1257,9 @@ driving = 1;
             e.printStackTrace();
         }
 
+        adapterStaff = new TurnAdapter(InitialListStaffs, getApplicationContext());
 
-
-        adapter = new ArrayAdapter<String>(
-                traffic.this, R.layout.turnslist, R.id.turns, lister);
-
-   /*     ArrayAdapter adapter2 = new ArrayAdapter<String>(
-                traffic.this, R.layout.turnslist, R.id.distancex, lister);
-*/
-        listViewz.setAdapter(adapter);
-/*        listViewz.setAdapter(adapter2);*/
-
+        recyclerViewStaff.setAdapter(adapterStaff);
     }
 
 
@@ -1330,7 +1352,7 @@ driving = 1;
         // incrementRouteIndexOfNextOrderPolyline() function. Take a look at
         // incrementRouteIndexOfNextOrderPolyline() and look at this example. example: if we have
         // 138 the next count is 139.
-        lister.clear();
+
         if(!listOfRouteArray.isEmpty()){
             if((listOfIndicesOfCurrentRoutes.get(0) + 1) < listOfRouteArray.get(0).length()){
 
@@ -1411,13 +1433,12 @@ driving = 1;
 
             }
 
-            for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+       /*     for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
                 JSONObject t1 = turns.getJSONObject(zxcz);
                 get =   Html.fromHtml(t1.getString(ins)).toString();
                 lister.add(get);
             }
-
-
+*/
 
             //Correction starts here
 //            line = mMap.addPolyline(options);
@@ -1431,8 +1452,8 @@ driving = 1;
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                traffic.this, R.layout.turnslist, R.id.turns, lister);
+/*        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                traffic.this, R.layout.turnslist, R.id.turns, lister);*/
 
 
         listViewz.setAdapter(adapter);
@@ -3368,7 +3389,6 @@ driving = 1;
         int result = resultCode;
 
         mMap.clear();
-        lister.clear();
 
         //add markers back
         int current = 0;

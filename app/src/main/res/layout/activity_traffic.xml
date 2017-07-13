@@ -148,15 +148,15 @@ android:src="@drawable/ic_action_name"
 
         <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="130dp"
         android:layout_weight="1"
         android:background="#689F38">
 
-            <ListView
-                android:id="@+id/list_item"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewStaff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                ></ListView>
+                ></android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 

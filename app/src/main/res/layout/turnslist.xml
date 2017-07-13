@@ -22,7 +22,7 @@
         android:thicknessRatio="1.9"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
+app:cardElevation="10dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true"
         card_view:cardBackgroundColor="#ffffff"
@@ -64,29 +64,71 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    >
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/distancex"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/turns"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lastname"
+
+                            android:textAlignment="center"
+                            android:textColor="#994495"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lastname"
+                        android:layout_gravity="bottom">
 
-                        android:layout_gravity="bottom"
-                        android:textAlignment="center"
-                        android:textColor="#994495"
-                        android:textSize="12dp"
-                        android:textStyle="bold"/>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/turns"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lastname"
-                        android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:textColor="#994495"
-                        android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/distancex"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:gravity="bottom"
+
+                                android:text="Lastname"
+                                android:textAlignment="center"
+                                android:textColor="#994495"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:gravity="center"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/durationx"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+
+                            android:text="Lastname"
+                            android:textAlignment="center"
+                            android:textColor="#994495"
+                            android:textSize="14dp"
+
+                            android:textStyle="bold" />
+</LinearLayout>
+                    </LinearLayout>
 
 
                 </LinearLayout>
