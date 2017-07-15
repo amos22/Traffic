@@ -170,7 +170,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
 
 
     static int qp1, qp2, qp3, qp4, qp5;
-int driving = 0;
+    int driving = 0;
     static int packs , itc;
 
     static Button nav;
@@ -202,7 +202,7 @@ int driving = 0;
     Double layo;
 
 
-    ArrayAdapter<String> adapter;
+
 
 
     private RecyclerView recyclerViewStaff;
@@ -217,6 +217,8 @@ int driving = 0;
     double distanz;
     int dc;
     int ready1;
+
+    static String pic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -587,7 +589,7 @@ int driving = 0;
                     CameraUpdateFactory.newCameraPosition(cameraPosition));
             mGoogleApiClient.connect();
 
-driving = 1;
+            driving = 1;
         }
 
 
@@ -748,7 +750,7 @@ driving = 1;
 
         //add markers back
         mMap.clear();
-       // lister.clear();
+        // lister.clear();
         int current = 0;
         for(
                 MarkerOptions options :mList)
@@ -757,7 +759,7 @@ driving = 1;
             Marker m = mMap.addMarker(options);
             //reset icons
             m.setIcon(icons[current++]);
-            adapter.notifyDataSetChanged();
+            adapterStaff.notifyDataSetChanged();
         }
 
         //add places back
@@ -1065,10 +1067,10 @@ driving = 1;
                 waypoints = waypoints.concat(Temp);
             }
             sensor = "&alternatives=true&sensor=false&mode=driving";
-            main = "origin=" + Double.toString(points.get(i).latitude) + "," + Double.toString(points.get(i).longitude) + "&destination=" + Double.toString(points.get(points.size() - 1).latitude) + "," + Double.toString(points.get(points.size() - 1).longitude);
+            main = "origin=" + Double.toString(points.get(0).latitude) + "," + Double.toString(points.get(0).longitude) + "&destination=" + Double.toString(points.get(points.size() - 1).latitude) + "," + Double.toString(points.get(points.size() - 1).longitude);
             params = main + "&" + waypoints + sensor;
         }
-         else {
+        else {
             sensor = "&sensor=false&mode=driving&alternatives=true";
             main = "origin=" + Double.toString(latLng.latitude) + "," + Double.toString(latLng.longitude) + "&destination=" + Double.toString(points.get(points.size() - 1).latitude) + "," + Double.toString(points.get(points.size() - 1).longitude);
             params = main + sensor;
@@ -1215,6 +1217,7 @@ driving = 1;
             Double lon;
             Double elat;
             Double elon;
+
             for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
                 TurnItem turnk = new TurnItem();
                 JSONObject t1 = turns.getJSONObject(zxcz);
@@ -1234,9 +1237,15 @@ driving = 1;
                 Log.d("endstart",""+elon);
                 elatz.add(elat);
                 elongz.add(elon);
-                 turnk.setturn(Html.fromHtml(t1.getString(ins)).toString());
-           turnk.setdis(Html.fromHtml(layo.getString("text")).toString());
+
+
+
+                turnk.setturn(Html.fromHtml(t1.getString(ins)).toString());
+                turnk.setdis(Html.fromHtml(layo.getString("text")).toString());
                 turnk.setdur(Html.fromHtml(oras.getString("text")).toString());
+
+
+
 
 
 
@@ -1433,12 +1442,19 @@ driving = 1;
 
             }
 
-       /*     for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+            InitialListStaffs.clear();
+
+            for (int zxcz = 0; zxcz < turns.length(); zxcz++) {
+                TurnItem turnk = new TurnItem();
                 JSONObject t1 = turns.getJSONObject(zxcz);
-                get =   Html.fromHtml(t1.getString(ins)).toString();
-                lister.add(get);
+                JSONObject layo = t1.getJSONObject("distance");
+                JSONObject oras = t1.getJSONObject("duration");
+                turnk.setturn(Html.fromHtml(t1.getString(ins)).toString());
+                turnk.setdis(Html.fromHtml(layo.getString("text")).toString());
+                turnk.setdur(Html.fromHtml(oras.getString("text")).toString());
+                InitialListStaffs.add(turnk);
+
             }
-*/
 
             //Correction starts here
 //            line = mMap.addPolyline(options);
@@ -1452,11 +1468,12 @@ driving = 1;
         } catch (JSONException e) {
             e.printStackTrace();
         }
-/*        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                traffic.this, R.layout.turnslist, R.id.turns, lister);*/
 
+        adapterStaff = new TurnAdapter(InitialListStaffs, getApplicationContext());
 
-        listViewz.setAdapter(adapter);
+        recyclerViewStaff.setAdapter(adapterStaff);
+        adapterStaff.notifyDataSetChanged();
+        recyclerViewStaff.invalidate();
     }
 
 
@@ -3389,6 +3406,7 @@ driving = 1;
         int result = resultCode;
 
         mMap.clear();
+        InitialListStaffs.clear();
 
         //add markers back
         int current = 0;
@@ -3396,7 +3414,7 @@ driving = 1;
             Marker m = mMap.addMarker(options);
             //reset icons
             m.setIcon(icons[current++]);
-            adapter.notifyDataSetChanged();
+            adapterStaff.notifyDataSetChanged();
         }
 
         //add places back
@@ -3415,7 +3433,7 @@ driving = 1;
 
         try {
 
-            connectAsyncTask3 downloadTask2 = new connectAsyncTask3(url, this, false);
+            connectAsyncTask2 downloadTask2 = new connectAsyncTask2(url, this, false);
             downloadTask2.execute();
 
 
@@ -3480,7 +3498,7 @@ driving = 1;
 
     @Override
     public void onLocationChanged(Location location) {
-        int bearing = 0;
+
         latitude = location.getLatitude();
         longitude = location.getLongitude();
         latLng = new LatLng(location.getLatitude(), location.getLongitude());
@@ -3524,11 +3542,22 @@ else
 
 
 
-        if(mList.size() > 1) {
-            if(checklist==1) {
-                replot();
-                adapter.notifyDataSetChanged();
-            }
+        if(mList.size() > 2) {
+   Location user = new Location("");
+            user.setLatitude(latitude);
+            user.setLongitude(longitude);
+            Location kanto = new Location("");
+            kanto.setLatitude(elatz.get(0));
+            kanto.setLongitude(elongz.get(0));
+            double kantolayo = user.distanceTo(kanto);
+            Log.d("kantolayo",""+kantolayo);
+if (kantolayo < 100)
+{
+    replot();
+    adapterStaff.notifyDataSetChanged();
+}
+
+
         }
         mCurrLocationMarker = mMap.addMarker(new MarkerOptions()
                 .position(latLng)
@@ -3543,6 +3572,11 @@ else
         if (mGoogleApiClient == null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             Log.d("onLocationChanged", "Removing Location Updates");
+        }
+        else
+        {
+            points.remove(0);
+            points.add(0,latLng);
         }
 
         Log.d("onLocationChanged", "Exit");

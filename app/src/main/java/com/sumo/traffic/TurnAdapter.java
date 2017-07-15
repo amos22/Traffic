@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -68,6 +69,30 @@ public class TurnAdapter extends RecyclerView.Adapter<TurnAdapter.ViewHolder> {
        holder.dis.setText(listStaff.getdis());
         holder.dur.setText(listStaff.getdur());
 
+     String checker = listStaff.getturn();
+        if (checker.contains("Turn left"))
+        {
+            holder.turnview.setImageResource(R.drawable.left);
+        }
+        else if (checker.contains("Turn right"))
+        {
+            holder.turnview.setImageResource(R.drawable.right);
+        }
+        else if (checker.contains("Slight right"))
+        {
+            holder.turnview.setImageResource(R.drawable.slightright);
+        }
+        else if (checker.contains("Slight left"))
+        {
+            holder.turnview.setImageResource(R.drawable.slightleft);
+        }
+        else
+        {
+            holder.turnview.setImageResource(R.drawable.straight);
+        }
+
+
+
 
         Animation animation = AnimationUtils.loadAnimation(context,
                 (position > lastPosition) ? R.anim.up_from_bottom
@@ -116,6 +141,7 @@ public class TurnAdapter extends RecyclerView.Adapter<TurnAdapter.ViewHolder> {
         public TextView way;
         public TextView dis;
         public TextView dur;
+        public ImageView turnview;
 
         public LinearLayout linearLayoutStaff;
 
@@ -125,6 +151,7 @@ public class TurnAdapter extends RecyclerView.Adapter<TurnAdapter.ViewHolder> {
           way = (TextView)itemView.findViewById(R.id.turns);
             dis = (TextView)itemView.findViewById(R.id.distancex);
             dur = (TextView)itemView.findViewById(R.id.durationx);
+            turnview = (ImageView) itemView.findViewById(R.id.turnview);
 
             linearLayoutStaff = (LinearLayout) itemView.findViewById(R.id.linearLayoutStaff);
         }
