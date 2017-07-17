@@ -13,10 +13,8 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        android:background="#2a873e"
+        android:background="#FFF0D6"
         android:clickable="true">  <!-- Clickable to fix unresponsive SwipeRefreshLayout -->
-
-
 
         <!-- Container enforces relative positioning of header and list of forecasts -->
         <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -30,7 +28,6 @@
                 android:id="@+id/imageView"
                 android:background="@drawable/loaders1"
                 android:onClick="gogo"
-
                 android:layout_gravity="center_horizontal|top" />
 
             <!-- Header -->
@@ -41,24 +38,19 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="1">
-
                 <TextView
                     android:id="@+id/location_name"
                     style="@style/LocationText"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-
-android:textColor="#BEE8B7"
+                    android:textColor="#BEE8B7"
                     android:layout_width="0dp" />
-
                 <TextView
                     android:id="@+id/current_temperature"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     style="@style/CurrentTemperatureText" />
-
             </LinearLayout>
-
             <!-- Forecasts -->
             <TextView
                 android:layout_width="wrap_content"
@@ -66,18 +58,17 @@ android:textColor="#BEE8B7"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="This is the current weather of Quezon city, To continue please click the TARA logo."
                 android:id="@+id/textView20"
+                android:textColor="#EE7469"
                 android:gravity="center"
-            android:textSize="17dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
                 android:layout_gravity="center_horizontal" />
-
             <ListView
                 android:id="@+id/weather_forecast_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2" />
-
         </LinearLayout>
-
         <!-- Footer -->
         <TextView
             android:id="@+id/attribution"
