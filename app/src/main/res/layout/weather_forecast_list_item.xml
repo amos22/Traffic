@@ -3,14 +3,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#2a873e"
+    android:background="#EE7469"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/day"
         android:text="@string/monday"
         android:layout_weight="3"
-        android:textColor="#fff"
+        android:textColor="#FFF0D6"
         android:layout_marginRight="20dp"
         style="@style/WeatherForecastListItemText" />
 
@@ -18,14 +18,14 @@
         android:id="@+id/description"
         android:text="@string/sky_is_clear"
         android:layout_weight="5"
-        android:textColor="#fff"
+        android:textColor="#FFF0D6"
         style="@style/WeatherForecastListItemText" />
 
     <TextView
         android:id="@+id/maximum_temperature"
         android:text="@string/nineteen_degrees"
         android:layout_weight="1"
-        android:textColor="#fff"
+        android:textColor="#FFF0D6"
         style="@style/WeatherForecastListItemTextEmphasis" />
 
     <TextView
