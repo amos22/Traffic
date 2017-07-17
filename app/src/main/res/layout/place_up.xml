@@ -6,208 +6,187 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/ayala"
-
-        android:orientation="vertical"> <!--QUEZONMEMORIALCIRCLE -->
+        android:orientation="vertical"
+        android:background="@drawable/ayala"> <!--QUEZONMEMORIALCIRCLE -->
     </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:layout_marginTop="0dp"
-        android:background="#ecf0f1"
-        android:orientation="horizontal">
-
+        android:background="#FFF0D6">
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="About"
+            android:textColor="#383732"
+            android:textStyle="bold"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="31dp"
-            android:text="About"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#000" />
-
+            android:layout_marginTop="31dp" />
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
+            android:text="The UP Ayala Land TechnoHub is a PEZA-accredited IT park located along Commonwealth Avenue."
+            android:id="@+id/textView2"
+            android:textColor="#000"
             android:layout_below="@+id/textView"
             android:layout_toRightOf="@+id/textView"
-            android:text="The UP Ayala Land TechnoHub is a PEZA-accredited IT park located along Commonwealth Avenue."
-            android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
-            android:textColor="#000" />
-
+            android:layout_alignParentEnd="true" />
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Contact"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#000" />
-
+            android:id="@+id/textView3"
+            android:textColor="#383732"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_below="@+id/textView3"
+            android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
             android:text="0917 515 0171"
-            android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
-            android:textColor="#000" />
-
+            android:id="@+id/textView4"
+            android:layout_below="@+id/textView3"
+            android:textColor="#000"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
         <TextView
-            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView4"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Address"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#000" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView5"
-            android:layout_toEndOf="@+id/textView"
-            android:layout_toRightOf="@+id/textView"
-            android:text="Commonwealth Avenue, Barangay U.P. Campus, Quezon City"
-            android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
-            android:textColor="#000" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:textColor="#383732"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView4"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView6"
-            android:text="Reviews"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
+            android:text="Commonwealth Avenue, Barangay U.P. Campus, Quezon City"
+            android:id="@+id/textView6"
+            android:layout_below="@+id/textView5"
+            android:textColor="#000"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#000" />
-
+            android:text="Reviews"
+            android:id="@+id/textView7"
+            android:textColor="#383732"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView6"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <RelativeLayout
-            android:id="@+id/hiders"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:layout_marginTop="10dp"
-            android:background="#BEFFB6"
             android:orientation="horizontal"
-            android:visibility="invisible"
+            android:layout_marginTop="10dp"
+            android:background="#EE7469"
             android:weightSum="1"
-
-            >
-
-            <TextView
-                android:id="@+id/SXXXX"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:text="SUGGESTIONS:"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#000" />
+            android:visibility="invisible"
+            android:id="@+id/hiders">
 
             <Button
-                android:id="@+id/p1"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_below="@+id/SXXXX"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp"
-                android:background="#27ae60"
-                android:onClick="p1"
                 android:text="Vargas Musuem"
-                android:textColor="#fff" />
-
+                android:background="#FFF0D6"
+                android:textColor="#EE7469"
+                android:onClick="p1"
+                android:id="@+id/p1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp" />
 
             <Button
-                android:id="@+id/p2"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignStart="@+id/p1"
-                android:layout_below="@+id/p1"
-                android:layout_marginTop="10dp"
-                android:background="#27ae60"
-                android:onClick="p2"
                 android:text="Parish of Holy Sacrifice"
-                android:textColor="#fff" />
+                android:background="#FFF0D6"
+                android:textColor="#EE7469"
+                android:id="@+id/p2"
+                android:onClick="p2"
+                android:layout_below="@+id/p1"
+                android:layout_alignStart="@+id/p1"
+                android:layout_marginTop="10dp" />
 
             <Button
-                android:id="@+id/p3"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:layout_alignStart="@+id/p2"
-                android:layout_below="@+id/p2"
-                android:layout_marginTop="10dp"
-                android:background="#27ae60"
+                android:background="#FFF0D6"
+                android:textColor="#EE7469"
+                android:id="@+id/p3"
                 android:onClick="p3"
-                android:text="Ateneo Art Gallery"
-                android:textColor="#fff" />
+                android:layout_below="@+id/p2"
+                android:layout_alignStart="@+id/p2"
+                android:layout_marginTop="10dp"
+                android:text="Ateneo Art Gallery" />
 
             <TextView
-                android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/SXXXX"
-                android:gravity="center"
-                android:text="These are the suggested places to go:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#000" />
-
+                android:text="Suggested Places"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#383732"
+                android:layout_marginTop="5dp"
+                android:id="@+id/textView21"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
 
-
         <Button
-            android:id="@+id/ad"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#EE7469"
+            android:background="@drawable/border"
+            android:text="Add Destination"
+            android:layout_marginBottom="6dp"
+            android:id="@+id/ad"
             android:layout_above="@+id/button2"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="1dp"
-            android:background="#27ae60"
-            android:onClick="artadd"
-            android:text="add this destination"
-            android:textColor="#fff" />
+            android:onClick="artadd" />
 
         <Button
-            android:id="@+id/button2"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
+            android:textColor="#EE7469"
+            android:background="@drawable/border"
+            android:text="Delete Destination"
+            android:id="@+id/button2"
             android:layout_marginBottom="2dp"
-            android:background="#27ae60"
-            android:text="Delete this Destination"
-            android:textColor="#fff" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
 
 
         <RatingBar
-            android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView6"
-            android:layout_below="@+id/textView7"
+            android:id="@+id/ratingBar"
             android:isIndicator="true"
-
+            android:scaleX=".5"
+            android:scaleY=".5"
             android:rating="4.7"
-            android:scaleX="1"
-            android:scaleY="1" />
+            android:layout_below="@+id/textView6"
+            android:layout_alignStart="@+id/textView6" />
 
 
     </RelativeLayout>
