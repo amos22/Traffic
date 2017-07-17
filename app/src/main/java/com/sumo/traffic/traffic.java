@@ -214,11 +214,14 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
     List<Double> longz = new ArrayList<Double>();
     List<Double> elatz = new ArrayList<Double>();
     List<Double> elongz = new ArrayList<Double>();
-    double distanz;
-    int dc;
-    int ready1;
 
-    static String pic;
+
+    double kantolayo;
+    double markarlayo;
+    int kantors = 0;
+    int desto = 2;
+
+    public static LinkedList<Marker> markerino = new LinkedList<Marker>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -420,10 +423,11 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
                     startActivity(i);
                     mMap.setTrafficEnabled(false);
                 } else if (item.getItemId() == R.id.traffic) {
-                    alternateRoute();
+                    replot();
+             /*       alternateRoute();
                     Log.e("Testing", String.valueOf(polylines));
                     Log.e("Testing", String.valueOf(listOfRouteArray));
-                    Log.e("Testing", String.valueOf(listOfIndicesOfCurrentRoutes));
+                    Log.e("Testing", String.valueOf(listOfIndicesOfCurrentRoutes));*/
 
 
 
@@ -752,6 +756,7 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         mMap.clear();
         // lister.clear();
         int current = 0;
+        InitialListStaffs.clear();
         for(
                 MarkerOptions options :mList)
 
@@ -3505,9 +3510,25 @@ public class traffic extends FragmentActivity implements LocationListener, OnMap
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
         Log.d("onLocationChanged", "entered");
 
+
+
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(latLng)
+                .title("My Location")
+
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.kikomarke1r11))
+                .anchor(0.5f, 1);
+
+        Marker m = mMap.addMarker(markerOptions);
+
+
+
+
+
         mLastLocation = location;
         if (mCurrLocationMarker != null) {
             mCurrLocationMarker.remove();
+            m.remove();
         }
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -3538,27 +3559,88 @@ else
 }
 
 */
+Log.d("asd123",""+mList.size());
+        Log.d("asd123",""+points.size());
+        Log.d("asd123",""+markers.size());
+        Log.d("asd123",""+desto);
+
+        if(!elatz.isEmpty() && !elongz.isEmpty()) {
+
+                    Location user = new Location("");
+                    user.setLatitude(latitude);
+                    user.setLongitude(longitude);
+                    Location kanto = new Location("");
+                    kanto.setLatitude(elatz.get(kantors));
+                    kanto.setLongitude(elongz.get(kantors));
+                   kantolayo = user.distanceTo(kanto);
+                    Log.d("kantolayo",""+kantolayo);
+
+                    Location markar = new Location("");
+                    markar.setLongitude(markers.getLast().getPosition().longitude);
+                    markar.setLatitude(markers.getLast().getPosition().latitude);
+                    markarlayo = user.distanceTo(markar);
+                    Log.d("asd123",""+markarlayo);
 
 
 
 
-        if(mList.size() > 2) {
-   Location user = new Location("");
-            user.setLatitude(latitude);
-            user.setLongitude(longitude);
-            Location kanto = new Location("");
-            kanto.setLatitude(elatz.get(0));
-            kanto.setLongitude(elongz.get(0));
-            double kantolayo = user.distanceTo(kanto);
-            Log.d("kantolayo",""+kantolayo);
-if (kantolayo < 100)
+
+            if (kantolayo < 50)
+            {
+
+                replot();
+                kantors++;
+             //   adapterStaff.notifyDataSetChanged();
+            }
+
+
+            if (markarlayo < 100)
+            {
+
+
+if (mList.size() > 1 && points.size() > 1 && markers.size() > 1 )
 {
-    replot();
-    adapterStaff.notifyDataSetChanged();
+
+
+    if (mList.size() >= desto)
+    {
+        desto--;
+    }
+    markers.get(desto).remove();
+    mList.remove(desto);
+    points.remove(desto);
+    distances.remove(desto);
+    reminders.remove(desto);
+    timestoStay.remove(desto);
+    mins.remove(desto);
+mMap.clear();
+                replot();
+
+
+
+/*    distances.remove(2);
+    reminders.remove(2);
+    timestoStay.remove(2);
+    mins.remove(2);*/
 }
 
 
-        }
+
+
+               // adapterStaff.notifyDataSetChanged();
+
+
+
+
+            }
+                }
+
+
+
+
+
+
+
         mCurrLocationMarker = mMap.addMarker(new MarkerOptions()
                 .position(latLng)
                 .flat(true)
@@ -3573,16 +3655,22 @@ if (kantolayo < 100)
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             Log.d("onLocationChanged", "Removing Location Updates");
         }
+/*
         else
         {
-            points.remove(0);
+
             points.add(0,latLng);
+            mList.add(0,markerOptions);
+            points.add(0,latLng);
+
         }
+*/
 
         Log.d("onLocationChanged", "Exit");
     }
 
-    @Override
+
+  /*  @Override
     public void onPause() {
         super.onPause();
 
@@ -3592,7 +3680,7 @@ if (kantolayo < 100)
         }
     }
 
-
+*/
 
 
     @Override
@@ -3612,6 +3700,7 @@ if (kantolayo < 100)
 
         points.add(latLng);
         markers.add(mMap.addMarker(markerOptions));
+        markerino.add(mMap.addMarker(markerOptions));
 
         //EXTRA CODES
         mList.add(markerOptions);
