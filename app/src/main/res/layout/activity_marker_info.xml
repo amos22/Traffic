@@ -8,66 +8,28 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#388E3C"
+    android:background="#FFF0D6"
     tools:context="com.sumo.traffic.MarkerInfoActivity">
 
     <ScrollView
-        android:background="#2A5C38"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="match_parent"
-            android:orientation="vertical"
             android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center">
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-</LinearLayout>
 
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/place_name_text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="View in StreetView"
-                    android:onClick="street"
-                    android:id="@+id/button7"
-                    android:layout_alignBottom="@+id/place_name_text"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignStart="@+id/powered_by_google" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/place_name_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginStart="12dp"
-                    android:text="Place name"
-                    android:textSize="30sp"
-                    android:textStyle="normal|bold" />
-            </LinearLayout>
-
-
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="12dp"
+                android:textColor="#EE7469"
+                android:text="Place name"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />                <!-- android:layout_below="@+id/ratingBar" -->
 
             <RelativeLayout
                 android:id="@+id/relative_pager"
@@ -84,8 +46,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
-                    android:background="#CF424242"
+                    android:background="#383732"
                     android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX=".5"
+                        android:scaleY=".5"
+                        android:layout_above="@+id/place_address_text"
+                        android:layout_alignParentStart="true" />
 
                     <me.relex.circleindicator.CircleIndicator
                         android:id="@+id/circleIndicator"
@@ -109,12 +80,14 @@
                     android:onClick="openNumberDialer"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@android:drawable/stat_sys_phone_call"
-                    android:elevation="20dp" />
+                    android:background="@drawable/ic_call_black_18dp"
+                    android:elevation="20dp"
+                    android:backgroundTintMode="screen" />
                 <TextView
                     android:id="@+id/place_number_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#383732"
                     android:layout_marginStart="5dp"
                     android:text="@android:string/emptyPhoneNumber" />
             </LinearLayout>
@@ -124,11 +97,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relative_pager"
+                android:background="#EE7469"
                 android:src="@drawable/powered_by_google_dark"
                 android:layout_alignParentEnd="true"/>
             <TextView
                 android:id="@+id/place_type_text"
                 android:layout_width="wrap_content"
+                android:textColor="#383732"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/place_address_text"
                 android:layout_below="@id/powered_by_google"
@@ -140,6 +115,7 @@
             <TextView
                 android:id="@+id/place_address_text"
                 android:layout_width="wrap_content"
+                android:textColor="#383732"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/place_name_text"
                 android:layout_below="@+id/place_type_text"
@@ -149,19 +125,23 @@
             <TextView
                 android:id="@+id/place_is_open"
                 android:layout_width="wrap_content"
+                android:textColor="#383732"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@id/place_name_text"
                 android:layout_below="@id/place_address_text"
                 android:layout_marginTop="10dp"
                 android:text="Place is open"
+                android:textStyle="bold"
                 android:textSize="14sp"/>
             <TextView
                 android:id="@+id/place_opening_hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#383732"
                 android:layout_alignStart="@id/place_name_text"
                 android:layout_below="@id/place_is_open"
                 android:layout_marginTop="10dp"
+                android:textStyle="bold"
                 android:text="Opening times:"/>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -170,7 +150,20 @@
                 android:layout_below="@id/number_layout"
                 android:layout_marginTop="10dp" />
 
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Street View"
+                android:onClick="street"
+                android:textColor="#EE7469"
+                android:background="@drawable/border"
+                android:id="@+id/button7"
+                android:layout_alignTop="@+id/recyclerView"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="48dp"
+                android:layout_alignParentStart="true" />
 
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
