@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sumo.traffic.radiusplace"
-    android:background="#96E891">
+    android:background="#FFF0D6">
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -24,7 +24,7 @@
         android:id="@+id/textView3"
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
-        android:textColor="#000000"
+        android:textColor="#383732"
         android:textSize="20dp"/>
 
     <TextView
@@ -72,10 +72,9 @@
         android:layout_height="wrap_content"
         android:text="Radius:"
         android:id="@+id/textView9"
-        android:textColor="#000000"
+        android:textColor="#EE7469"
         android:textSize="30dp"
         android:inputType="number"
-
         android:layout_alignBottom="@+id/editText3"
         android:layout_toStartOf="@+id/editText3" />
 
