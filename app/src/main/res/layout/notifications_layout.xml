@@ -6,31 +6,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:paddingTop="5dp"
-    android:background="#87E886"
+    android:background="#FFF0D6"
     tools:context=".MainActivity">
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingEnd="5dp"
         android:paddingStart="5dp">
-
         <TextView
             android:id="@+id/dest_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/destination"
-            android:textColor="#000"/>
-
+            android:textColor="#EE7469"/>
         <TextView
             android:id="@+id/destination_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/dest_textview"
             android:text="destination to show"
-            android:textColor="#000"/>
-
+            android:textColor="#EE7469"/>
         <TextView
             android:id="@+id/hour_main"
             android:layout_width="wrap_content"
@@ -40,8 +35,7 @@
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/separator"
             android:textStyle="normal|bold"
-            android:textColor="#000"/>
-
+            android:textColor="#EE7469"/>
         <TextView
             android:id="@+id/minute_main"
             android:layout_width="wrap_content"
@@ -51,8 +45,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:textStyle="normal|bold"
-            android:textColor="#000"/>
-
+            android:textColor="#EE7469"/>
         <TextView
             android:id="@+id/separator"
             android:layout_width="wrap_content"
@@ -60,14 +53,12 @@
             android:text=":"
             android:layout_alignBottom="@+id/hour_main"
             android:layout_toStartOf="@+id/minute_main"
-            android:textColor="#000"/>
+            android:textColor="#EE7469"/>
     </RelativeLayout>
-
-
+    
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
         android:background="@android:color/darker_gray" />
-
 </LinearLayout>
