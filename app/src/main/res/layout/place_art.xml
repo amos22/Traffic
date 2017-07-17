@@ -7,7 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         android:background="@drawable/artt"> <!--QUEZONMEMORIALCIRCLE -->
     </RelativeLayout>
     <RelativeLayout
@@ -15,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_marginTop="0dp"
-        android:background="#ecf0f1">
+        android:background="#FFF0D6">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +22,9 @@
             android:text="About"
             android:id="@+id/textView"
             android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true" android:textColor="#000"
+            android:layout_alignParentLeft="true"
+            android:textColor="#383732"
+            android:textStyle="bold"
             android:layout_alignParentStart="true"
             android:layout_marginTop="31dp" />
         <TextView
@@ -40,7 +41,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Contact"
-            android:id="@+id/textView3" android:textColor="#000"
+            android:id="@+id/textView3"
+            android:textColor="#383732"
+            android:textStyle="bold"
             android:layout_below="@+id/textView2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -58,7 +61,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Address"
-            android:id="@+id/textView5" android:textColor="#000"
+            android:id="@+id/textView5"
+            android:textColor="#383732"
+            android:textStyle="bold"
             android:layout_below="@+id/textView4"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -67,7 +72,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
             android:text="175 15th Ave., Brgy. Socorro,Quezon City, Philippines"
-            android:id="@+id/textView6" android:textColor="#000"
+            android:id="@+id/textView6"
+            android:textColor="#000"
             android:layout_below="@+id/textView5"
             android:layout_toRightOf="@+id/textView"
             android:layout_toEndOf="@+id/textView" />
@@ -76,7 +82,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Reviews"
-            android:id="@+id/textView7" android:textColor="#000"
+            android:textStyle="bold"
+            android:id="@+id/textView7"
+            android:textColor="#383732"
             android:layout_below="@+id/textView6"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -86,42 +94,28 @@
         android:layout_height="220dp"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:background="#BEFFB6"
+        android:background="#EE7469"
         android:weightSum="1"
         android:visibility="invisible"
-        android:id="@+id/hiders"
+        android:id="@+id/hiders">
 
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="SUGGESTIONS:"
-            android:textColor="#000"
-            android:id="@+id/SXXXX"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
         <Button
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:text="Wildlife Mini Zoo"
-            android:background="#27ae60"
-            android:textColor="#fff"
+            android:background="#FFF0D6"
+            android:textColor="#EE7469"
             android:onClick="p1"
             android:id="@+id/p1"
-            android:layout_below="@+id/SXXXX"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp" />
-
-
 
         <Button
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:text="La Mesa Ecopark"
-            android:background="#27ae60"
-            android:textColor="#fff"
+            android:background="#FFF0D6"
+            android:textColor="#EE7469"
             android:id="@+id/p2"
             android:onClick="p2"
             android:layout_below="@+id/p1"
@@ -131,8 +125,8 @@
         <Button
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:background="#27ae60"
-            android:textColor="#fff"
+            android:background="#FFF0D6"
+            android:textColor="#EE7469"
             android:id="@+id/p3"
             android:onClick="p3"
             android:layout_below="@+id/p2"
@@ -144,11 +138,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="These are the suggested places to go:"
+            android:text="Suggested Places"
             android:id="@+id/textView21"
             android:gravity="center"
-            android:textColor="#000"
-            android:layout_below="@+id/SXXXX"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#383732"
+            android:layout_marginTop="5dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true" />
 
@@ -158,35 +154,35 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:background="#27ae60"
-            android:text="Add this destination"
-            android:layout_marginBottom="1dp"
+            android:textColor="#EE7469"
+            android:background="@drawable/border"
+            android:text="Add Destination"
+            android:layout_marginBottom="6dp"
             android:id="@+id/ad"
             android:layout_above="@+id/button2"
-            android:layout_alignParentStart="true"
-            android:onClick="artadd" />
+            android:onClick="artadd"
+            android:layout_alignEnd="@+id/textView6"
+            android:layout_alignParentStart="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:background="#27ae60"
-            android:text="Delete this Destination"
+            android:textColor="#EE7469"
+            android:background="@drawable/border"
+            android:text="Delete Destination"
             android:id="@+id/button2"
             android:layout_marginBottom="2dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
-
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"
             android:isIndicator="true"
-            android:scaleX="1"
-            android:scaleY="1"
+            android:scaleX=".5"
+            android:scaleY=".5"
             android:rating="4.6"
             android:layout_below="@+id/textView7"
             android:layout_alignStart="@+id/textView6" />
@@ -209,7 +205,4 @@
               android:scaleType="center"
               android:background="@drawable/edsav2"/> -->
     </LinearLayout>
-
-
-
 </LinearLayout>
