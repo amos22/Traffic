@@ -2,62 +2,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:background="#2a873e"
+    android:background="#FFF0D6"
     tools:context="com.sumo.traffic.AreaFilter.PlacesFilters"
     android:orientation="vertical">
+    
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="600dp" >
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="1">
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="0.40">
-
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:id="@+id/imageView"
                 android:background="@drawable/ic_launcher"
                 android:layout_marginLeft="100dp" />
-
         </LinearLayout>
-
-
-
-
-
-
-
-
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="0dp">
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:gravity="center"
+                android:textColor="#383732"
                 android:text="Input the Number of Travellers and you Specified Budget."
                 android:textSize="20dp"
                 android:id="@+id/airsz"
-
                 android:layout_marginLeft="0dp"/>
         </LinearLayout>
 
@@ -65,19 +49,16 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Number of Travellers:"
+                android:textStyle="bold"
                 android:id="@+id/busz"
+                android:textColor="#EE7469"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="25dp" />
-
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +66,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="0dp">
-
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +73,6 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:layout_marginLeft="10dp" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -102,12 +81,13 @@
             android:orientation="horizontal"
             android:layout_margin="10dp"
             android:layout_weight="0.40">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Recommended budget:"
+                android:textColor="#EE7469"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:id="@+id/textView12"
                 android:layout_marginLeft="60dp" />
@@ -120,7 +100,6 @@
             android:layout_margin="10dp"
             android:layout_weight="0.40"
             android:layout_gravity="right">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,22 +115,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_margin="10dp">
-
-
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Budget:"
+                android:textColor="#EE7469"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:id="@+id/buszs"
                 android:layout_marginLeft="130dp"/>
-
-
-
-
         </LinearLayout>
 
         <EditText
@@ -162,13 +135,11 @@
             android:maxLength="5"
             android:layout_weight="0.40"
             android:layout_marginLeft="10dp" />
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
-
         </LinearLayout>
 
         <LinearLayout
@@ -176,19 +147,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="bottom">
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Generate Itinerary"
-                android:background="#295937"
+                android:textColor="#EE7469"
+                android:background="@drawable/border"
                 android:id="@+id/Generate"
                 android:layout_marginTop="10dp" />
-
-
         </LinearLayout>
-
-
     </LinearLayout>
     </ScrollView>
 </LinearLayout>
