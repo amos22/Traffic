@@ -1,238 +1,187 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#2a873e"
+    android:background="#FFF0D6"
     android:weightSum="1">
 
-
-    <LinearLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-       android:gravity="center"
-        >
-
+    <LinearLayout 
+        android:layout_height="150dp"
+        android:layout_width="150dp"
+        android:layout_gravity="center_horizontal">
         <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/ic_launcher" />
+            android:background="@drawable/ic_launcher"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_weight="0.05">
-
-
         <EditText
-            android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/editText"
             android:layout_weight="1"
-            android:hint="Your Destination Name." />
+            android:hint="Your Destination Name."/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
+        android:layout_height="114dp">
+        <RelativeLayout
+            android:layout_width="170dp"
+            android:layout_height="144dp"
             android:weightSum="1">
-
-
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:text="Distance:"
-                android:textSize="30sp" />
-
+                android:id="@+id/textView"
+                android:textSize="30sp"
+                android:textColor="#383732"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
                 android:id="@+id/d1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="0.00"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Time:"
-                android:textAlignment="center"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="30sp"
-                android:layout_margin="20dp"/>
-
-            <TextView
-                android:id="@+id/t1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:gravity="center_horizontal"
-                android:text="0.00"
-                android:textAlignment="center"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="30sp"
-                android:layout_margin="20dp"/>
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:weightSum="1">
-
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="90dp"
-                    android:layout_height="100dp"
-
-                    android:background="@drawable/timepicker"
-                    android:onClick="onTimePickClicked"
-                    android:textAllCaps="false" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:orientation="vertical">
-
-
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="134dp" >
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="How many hours you want to stay?"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <LinearLayout
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Time:"
+                android:textColor="#383732"
+                android:id="@+id/textView2"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/hour_picked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="10"
-                    android:textSize="24dp"
-                    android:textStyle="normal|bold" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text=":"
-                    android:textSize="24dp"/>
-
-                <TextView
-                    android:id="@+id/minutes_picked"
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-
-                    android:text="00"
-                    android:textSize="24dp"
-                    android:textStyle="normal|bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="0.00"
+                android:id="@+id/t1"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
     </LinearLayout>
-
-
-    <LinearLayout
+    
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-     android:orientation="vertical"
-        android:gravity="center">
-
-
+        android:layout_height="96dp">
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp"
-
-android:gravity="center"
-            android:text="Reminders:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:hint="Remind yourself, You might forgot something" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="How many hours you want to stay?"
+            android:id="@+id/textView5"
+            android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:text="Time Picker"
+            android:textAllCaps="false"
+            android:textColor="#EE7469"
+            android:background="@drawable/border"
+            android:onClick="onTimePickClicked"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/textView15"
+            android:layout_alignParentStart="true"
+            android:id="@+id/button4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_picked"
+                android:textSize="20dp"
+                android:textColor="#383732"
+                android:id="@+id/textView15"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/button4"
+                android:layout_marginStart="43dp" />
+            <TextView
+                android:id="@+id/hour_picked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#EE7469"
+                android:textSize="20dp"
+                android:textStyle="normal|bold"
+                android:layout_alignBottom="@+id/button4"
+                android:layout_alignStart="@+id/textView15"
+                android:layout_marginStart="22dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="20dp"
+                android:textColor="#EE7469"
+                android:id="@+id/textView16"
+                android:layout_alignTop="@+id/hour_picked"
+                android:layout_toEndOf="@+id/hour_picked" />
+            <TextView
+                android:id="@+id/minutes_picked"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textColor="#EE7469"
+                android:textSize="20dp"
+                android:textStyle="normal|bold"
+                android:layout_alignTop="@+id/textView16"
+                android:layout_toEndOf="@+id/textView16" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.78">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Reminders:"
+            android:id="@+id/textView6"
+            android:textColor="#383732"
+            android:layout_above="@+id/editText2"
+            android:layout_alignParentStart="true" />
 
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/editText2"
+            android:hint="Remind yourself, You might forgot something"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:id="@+id/button"
+            android:textColor="#EE7469"
+            android:background="@drawable/border"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:onClick="saveDestination"
-            android:text="Submit" />
-    </LinearLayout>
-
+            android:nestedScrollingEnabled="false" />
+    </RelativeLayout>
 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
