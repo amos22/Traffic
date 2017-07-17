@@ -2,15 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="56dp"
-    android:background="#96E891">
+    android:background="#FFF0D6">
 
     <ImageButton
         android:id="@+id/imgView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:background="#96E891"
-       />
+        android:background="#EE7469" />
 
     <TextView
         android:id="@+id/txtView"
@@ -21,6 +20,6 @@
         android:gravity="center_vertical"
         android:textSize="22sp"
         android:textStyle="normal"
-        android:textColor="@android:color/black"/>
+        android:textColor="#EE7469"/>
 
 </LinearLayout>
